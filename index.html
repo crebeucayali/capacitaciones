@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Repositorio digital de jornadas de capacitación del CREBE Señor de los Milagros - Ucayali.">
+  <title>Jornadas de capacitación CREBE</title>
+  <link rel="stylesheet" href="estilos.css?v=21">
+  <link rel="stylesheet" href="https://gabriel-lsp.github.io/accesos-complementarios/accesibilidad/accesibilidad.css?v=5">
+  <style>
+    .patron-portada {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+
+      background-image: url("patron-shipibo.webp");
+      background-repeat: repeat;
+      background-size: cover;
+      background-position: center;
+      opacity: .30;
+      filter: saturate(1.15) contrast(1.08);
+    }
+
+    .cabecera .navegacion,
+    .cabecera .portada,
+    .cabecera .presentacion {
+      position: relative;
+      z-index: 1;
+    }
+
+    .marca-institucional {
+      align-items: center;
+      gap: 14px;
+      max-width: min(560px, 100%);
+    }
+
+    .marca-logo-superior {
+      display: block;
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      flex-shrink: 0;
+      padding: 4px;
+      background: rgba(255, 255, 255, .96);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .14);
+    }
+
+    .marca-texto-superior {
+      display: block;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255, 255, 255, .35);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, .28);
+    }
+
+    .marca-modulo {
+      display: block;
+      margin: 0 0 3px;
+      color: #c9f7ee;
+      font-size: .76rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .marca-nombre-institucional {
+      display: block;
+      color: #ffffff;
+      font-size: 1.02rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .marca-detalle-institucional {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, .94);
+      font-size: .88rem;
+      font-weight: 750;
+      line-height: 1.25;
+    }
+
+    @media (max-width: 760px) {
+      .marca-institucional {
+        align-items: flex-start;
+      }
+
+      .marca-logo-superior {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+      }
+
+      .marca-texto-superior {
+        padding-left: 12px;
+      }
+
+      .marca-nombre-institucional {
+        font-size: .94rem;
+      }
+
+      .marca-detalle-institucional {
+        font-size: .82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="salto-contenido" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera" id="inicio">
+    <div class="patron-portada" aria-hidden="true"></div>
+
+    <nav class="navegacion" aria-label="Navegación principal">
+      <a class="marca marca-institucional" href="https://gabriel-lsp.github.io/capacitaciones-crebe-ucayali/" aria-label="Volver al inicio de Capacitaciones CREBE">
+        <img class="marca-logo-superior" src="https://gabriel-lsp.github.io/banco-digital-accesible/logo-crebe.png" alt="Logo del CREBE Señor de los Milagros - Ucayali">
+        <span class="marca-texto-superior">
+          <span class="marca-modulo">Capacitaciones CREBE</span>
+          <span class="marca-nombre-institucional">CREBE "Señor de los Milagros" - Ucayali</span>
+          <span class="marca-detalle-institucional">Centro de Recursos de Educación Básica Especial</span>
+        </span>
+      </a>
+
+      <div class="enlaces-cabecera">
+        <a class="enlace-cabecera" href="https://crebe-ucayali.netlify.app/">Inicio principal</a>
+        <a class="enlace-cabecera" href="https://gabriel-lsp.github.io/accesos-complementarios/paginas/contacto.html">Contacto</a>
+      </div>
+    </nav>
+
+    <div class="presentacion">
+      <p class="etiqueta-superior">Repositorio formativo institucional</p>
+      <h1>Jornadas de capacitación CREBE</h1>
+      <p class="subtitulo">Espacio digital para organizar las sesiones de capacitación por fecha, con acceso al video, flyer, infografía y diapositivas de cada jornada.</p>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="panel-busqueda" aria-labelledby="titulo-busqueda">
+      <div class="panel-encabezado">
+        <div>
+          <p class="seccion-etiqueta">Línea de tiempo</p>
+          <h2 id="titulo-busqueda">Capacitaciones organizadas por fecha</h2>
+          <p class="descripcion-panel">Cada recuadro corresponde a una jornada. La información se presenta de arriba hacia abajo, iniciando con la fecha, el título de la capacitación y los recursos disponibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-capacitaciones" id="capacitaciones" aria-labelledby="titulo-capacitaciones">
+      <h2 id="titulo-capacitaciones" class="solo-lectores">Lista de capacitaciones</h2>
+      <div id="lineaTiempo" class="linea-tiempo" aria-live="polite"></div>
+      <p id="sinResultados" class="estado-vacio" hidden>No se encontraron capacitaciones registradas.</p>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <div class="footer-contenido">
+      <div class="footer-bloque footer-identidad">
+        <img class="logo-footer" src="https://gabriel-lsp.github.io/banco-digital-accesible/logo-crebe.png" alt="Logo del CREBE Señor de los Milagros - Ucayali">
+        <div>
+          <h2>Jornadas de capacitación CREBE</h2>
+          <p>Repositorio digital de sesiones formativas, materiales y recursos de apoyo para la Educación Básica Especial.</p>
+        </div>
+      </div>
+
+      <div class="footer-bloque">
+        <h2>Módulos</h2>
+        <p>
+          <a href="https://gabriel-lsp.github.io/capacitaciones-crebe-ucayali/">Capacitaciones CREBE</a><br>
+          <a href="https://gabriel-lsp.github.io/banco-digital-accesible/">Banco Digital Accesible</a><br>
+          <a href="https://gabriel-lsp.github.io/materiales-educativos-accesibles/">Materiales Educativos Accesibles</a><br>
+          <a href="https://gabriel-lsp.github.io/juegos-interactivos-accesibles/">Juegos Interactivos Accesibles</a><br>
+          <a href="https://gabriel-lsp.github.io/noti-inclusivos/">Noti Inclusivo</a><br>
+          <a href="https://gabriel-lsp.github.io/repositorio-accesible/">Repositorio Accesible</a><br>
+        </p>
+      </div>
+
+      <div class="footer-bloque">
+        <h2>Contacto CREBE</h2>
+        <p>
+          CREBE "Señor de los Milagros" - Ucayali<br>
+          Correo: senordelosmilagroscrebe@gmail.com<br>
+          Horario: lunes a viernes, 8:00 a.m. - 12:00 p.m.<br>
+          Dirección: I.E. Santa Clara 64039<br>
+          Avenida Santa Clara mz d lt 20<br>
+          Coronel Portillo-Manantay<br>
+          <a href="https://www.facebook.com/CREBESM">Facebook</a><br>
+          <a href="https://www.tiktok.com/@crebe.sm.ucayali">TikTok</a><br>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-final">
+      <p>© 2026 Gabriel Berrospi. Desarrollo original. Uso institucional autorizado al CREBE "Señor de los Milagros" - Ucayali.</p>
+    </div>
+  </footer>
+
+  <script src="app.js?v=23" defer></script>
+  <script src="https://gabriel-lsp.github.io/accesos-complementarios/accesibilidad/accesibilidad.js?v=5" defer></script>
+</body>
+</html>
