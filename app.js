@@ -16,12 +16,12 @@ const capacitaciones = [
     fecha: "Viernes 19 de junio",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
-    estado: "pendiente",
+    estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-02/Infografia.jpg",
       diapositivas: "documentos/capacitacion-02/diapositivas.pdf"
-      video: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/view",
-      videoDrive: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/view"
+      video: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/preview",
+    videoDrive: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/view"
     }
   },
   {
