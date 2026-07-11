@@ -7,7 +7,8 @@ const capacitaciones = [
     recursos: {
       flyer: "imagenes/capacitacion-01/flyer.jpg",
       infografia: "imagenes/capacitacion-01/infografia.jpg",
-      diapositivas: "documentos/capacitacion-01/diapositivas.pdf",
+      diapositivas: "https://drive.google.com/file/d/1HNFoHBVokwRZFunaKFUv506sZ39fOjX_/preview",
+      diapositivasDrive: "https://drive.google.com/file/d/1HNFoHBVokwRZFunaKFUv506sZ39fOjX_/view",
       video: "https://drive.google.com/file/d/12sRjL1kb-4y8g3Tz8fpUpemK2Uzptkuz/preview",
       videoDrive: "https://drive.google.com/file/d/12sRjL1kb-4y8g3Tz8fpUpemK2Uzptkuz/view"
     }
@@ -19,7 +20,8 @@ const capacitaciones = [
     estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-02/Infografia.jpg",
-      diapositivas: "documentos/capacitacion-02/diapositivas.pdf",
+      diapositivas: "https://drive.google.com/file/d/14ECDjqx7w25FTpz62BgIyrJoU7XtVDVS/preview",
+      diapositivasDrive: "https://drive.google.com/file/d/14ECDjqx7w25FTpz62BgIyrJoU7XtVDVS/view",
       video: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/preview",
       videoDrive: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/view"
     }
@@ -31,6 +33,8 @@ const capacitaciones = [
     estado: "pendiente",
     recursos: {
       infografia: "imagenes/capacitacion-03/Infografia.jpg",
+      diapositivas: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/preview",
+      diapositivasDrive: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/view",
       video: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZnpJbVRMRXJab3NmUXBMbWxzRnF3aHdGU2VTbFdHZTIvcHJldmlldw=="),
       videoDrive: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZnpJbVRMRXJab3NmUXBMbWxzRnF3aHdGU2VTbFdHZTIvdmlldw==")
     }
@@ -42,6 +46,8 @@ const capacitaciones = [
     estado: "pendiente",
     recursos: {
       infografia: "imagenes/capacitacion-04/Infografia.jpg",
+      diapositivas: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/preview",
+      diapositivasDrive: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/view",
       video: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdkliY2I0WGZYNmJfQW5nT1VMZzUyYlk0dGk4Q0h6V0svcHJldmlldw=="),
       videoDrive: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdkliY2I0WGZYNmJfQW5nT1VMZzUyYlk0dGk4Q0h6V0svdmlldw==")
     }
@@ -53,6 +59,8 @@ const capacitaciones = [
     estado: "pendiente",
     recursos: {
       infografia: "imagenes/capacitacion-05/infografia.jpg",
+      diapositivas: "https://drive.google.com/file/d/1N2iQBMexK3Q1y425gi_JzWNNLq4GEvaj/preview",
+      diapositivasDrive: "https://drive.google.com/file/d/1N2iQBMexK3Q1y425gi_JzWNNLq4GEvaj/view",
       video: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/preview",
       videoDrive: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/view"
     }
@@ -124,22 +132,25 @@ function crearRecursoImagen(titulo, ruta, textoBoton, alt) {
   `;
 }
 
-function crearRecursoPDF(ruta) {
+function crearRecursoPDF(ruta, rutaDrive) {
   if (!ruta) {
     return crearRecursoPendiente("Diapositivas PDF", "Pendiente de subir", "Sin archivo");
   }
 
+  const enlaceExterno = rutaDrive || ruta.replace("/preview", "/view");
+  const vistaSegura = protegerHTML(ruta);
+  const enlaceSeguro = protegerHTML(enlaceExterno);
+
   return `
     <article class="recurso">
       <h4>Diapositivas PDF</h4>
-      <div class="vista-recurso">
-        <iframe
-          src="${ruta}"
-          title="Vista previa de diapositivas en PDF">
-        </iframe>
+      <div class="vista-recurso diapositivas-recurso marcador" data-diapositivas-src="${vistaSegura}">
+        <button class="boton-recurso boton-cargar-diapositivas" type="button" data-diapositivas-src="${vistaSegura}">
+          Ver diapositivas
+        </button>
       </div>
-      <a class="boton-recurso" href="${ruta}" target="_blank" rel="noopener">
-        Abrir diapositivas
+      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener">
+        Abrir diapositivas en Drive
       </a>
     </article>
   `;
@@ -209,7 +220,7 @@ function crearTarjeta(capacitacion) {
             `Infografía de la capacitación ${capacitacion.titulo}`
           )}
 
-          ${crearRecursoPDF(recursos.diapositivas)}
+          ${crearRecursoPDF(recursos.diapositivas, recursos.diapositivasDrive)}
 
           ${crearRecursoVideo(recursos.video, recursos.videoDrive)}
         </div>
@@ -228,17 +239,18 @@ function renderizarCapacitaciones(lista) {
   }
 }
 
-function cargarVideoDrive(boton) {
-  const contenedor = boton.closest(".video-recurso");
-  const video = boton.dataset.videoSrc;
+function cargarRecursoEnIframe(boton, claseContenedor, atributo, titulo) {
+  const contenedor = boton.closest(claseContenedor);
+  const recurso = boton.dataset[atributo];
 
-  if (!contenedor || !video) return;
+  if (!contenedor || !recurso) return;
 
   contenedor.classList.remove("marcador");
   contenedor.innerHTML = `
     <iframe
-      src="${video}"
-      title="Video de la capacitación"
+      src="${protegerHTML(recurso)}"
+      title="${protegerHTML(titulo)}"
+      loading="lazy"
       allow="autoplay"
       allowfullscreen>
     </iframe>
@@ -247,8 +259,20 @@ function cargarVideoDrive(boton) {
 
 document.addEventListener("click", (evento) => {
   const botonVideo = evento.target.closest(".boton-cargar-video");
-  if (!botonVideo) return;
-  cargarVideoDrive(botonVideo);
+  if (botonVideo) {
+    cargarRecursoEnIframe(botonVideo, ".video-recurso", "videoSrc", "Video de la capacitación");
+    return;
+  }
+
+  const botonDiapositivas = evento.target.closest(".boton-cargar-diapositivas");
+  if (botonDiapositivas) {
+    cargarRecursoEnIframe(
+      botonDiapositivas,
+      ".diapositivas-recurso",
+      "diapositivasSrc",
+      "Vista previa de diapositivas en PDF"
+    );
+  }
 });
 
 renderizarCapacitaciones(capacitaciones);
