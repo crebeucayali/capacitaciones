@@ -49,7 +49,9 @@ const capacitaciones = [
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
-    recursos: {}
+    recursos: {
+      infografia: "imagenes/capacitacion-05/infografia.jpg"
+    }
   },
   {
     fecha: "Viernes 17 de julio",
