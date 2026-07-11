@@ -20,6 +20,8 @@ const capacitaciones = [
     recursos: {
       infografia: "imagenes/capacitacion-02/Infografia.jpg",
       diapositivas: "documentos/capacitacion-02/diapositivas.pdf"
+      video: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/view",
+      videoDrive: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/view"
     }
   },
   {
