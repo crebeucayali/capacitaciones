@@ -177,6 +177,7 @@ function crearRecursoPendiente(titulo, mensaje, boton) {
 
 function crearTarjeta(capacitacion) {
   const recursos = capacitacion.recursos || {};
+  const mostrarFlyer = capacitacion === capacitaciones[0];
 
   return `
     <article class="capacitacion ${capacitacion.estado === "disponible" ? "disponible" : "pendiente"}">
@@ -189,13 +190,13 @@ function crearTarjeta(capacitacion) {
           <p class="tema">${protegerHTML(capacitacion.tema)}</p>
         </header>
 
-        <div class="recursos" id="materiales">
-          ${crearRecursoImagen(
+        <div class="recursos${mostrarFlyer ? "" : " tres-recursos"}" id="materiales">
+          ${mostrarFlyer ? crearRecursoImagen(
             "Flyer",
             recursos.flyer,
             "Abrir flyer",
             `Flyer de la capacitación ${capacitacion.titulo}`
-          )}
+          ) : ""}
 
           ${crearRecursoImagen(
             "Infografía",
