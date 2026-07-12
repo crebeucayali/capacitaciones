@@ -30,7 +30,7 @@ const capacitaciones = [
     fecha: "Viernes 26 de junio",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
-    estado: "pendiente",
+    estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-03/Infografia.jpg",
       diapositivas: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/preview",
@@ -43,7 +43,7 @@ const capacitaciones = [
     fecha: "Viernes 03 de julio",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
-    estado: "pendiente",
+    estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-04/Infografia.jpg",
       diapositivas: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/preview",
@@ -56,7 +56,7 @@ const capacitaciones = [
     fecha: "Viernes 10 de julio",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
-    estado: "pendiente",
+    estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-05/infografia.jpg",
       diapositivas: "https://drive.google.com/file/d/1N2iQBMexK3Q1y425gi_JzWNNLq4GEvaj/preview",
@@ -70,7 +70,9 @@ const capacitaciones = [
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
-    recursos: {}
+    recursos: {
+    infografia: "imagenes/capacitacion-06/infografia.jpg"
+    }
   },
   {
     fecha: "Viernes 24 de julio",
