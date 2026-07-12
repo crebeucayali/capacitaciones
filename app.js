@@ -68,7 +68,7 @@ const capacitaciones = [
   {
     fecha: "Viernes 17 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: pendiente de completar.",
+    tema: "Tema: Fundamentos del Diseño Universal para el Aprendizaje (DUA).",
     estado: "pendiente",
     recursos: {
     infografia: "imagenes/capacitacion-06/infografia.jpg"
@@ -76,8 +76,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 24 de julio",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Principio I:Múltiples formas de implicaciones.",
     estado: "pendiente",
     recursos: {
     infografia: "imagenes/capacitacion-07/infografia.jpg",
@@ -85,8 +85,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 31 de julio",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Principio II:Múltiples formas de implicaciones.",
     estado: "pendiente",
     recursos: {      
     infografia: "imagenes/capacitacion-08/infografia.jpg",
@@ -94,8 +94,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 07 de agosto",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Principio III:Múltiples formas de implicaciones.",
     estado: "pendiente",
     recursos: {
     infografia: "imagenes/capacitacion-09/infografia.jpg",
@@ -104,8 +104,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 14 de agosto",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Aplicación práctica del DUA en la planificación docente.",
     estado: "pendiente",
     recursos: {
     infografia: "imagenes/capacitacion-10/infografia.jpg",
