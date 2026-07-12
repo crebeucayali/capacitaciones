@@ -79,28 +79,37 @@ const capacitaciones = [
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
-    recursos: {}
+    recursos: {
+    infografia: "imagenes/capacitacion-07/infografia.jpg",
+    }
   },
   {
     fecha: "Viernes 31 de julio",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
-    recursos: {}
+    recursos: {      
+    infografia: "imagenes/capacitacion-08/infografia.jpg",
+  }
   },
   {
     fecha: "Viernes 07 de agosto",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
-    recursos: {}
+    recursos: {
+    infografia: "imagenes/capacitacion-09/infografia.jpg",
+
+    }
   },
   {
     fecha: "Viernes 14 de agosto",
     titulo: "Capacitación pendiente de registrar",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
-    recursos: {}
+    recursos: {
+    infografia: "imagenes/capacitacion-10/infografia.jpg",
+    }
   }
 ];
 
