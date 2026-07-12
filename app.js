@@ -1,8 +1,8 @@
 const capacitaciones = [
   {
     fecha: "Viernes 12 de junio",
-    titulo: "Fundamentos de la neurodiversidad",
-    tema: "Adaptaciones curriculares pedagógicas en la atención a la diversidad.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Fundamentos de la neurodiversidad",
     estado: "disponible",
     recursos: {
       flyer: "imagenes/capacitacion-01/flyer.jpg",
@@ -15,8 +15,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 19 de junio",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Neurociencia y factores emocionales en el aprendizaje.",
     estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-02/Infografia.jpg",
@@ -28,8 +28,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 26 de junio",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Aprendizaje contextualizado e inclusivo.",
     estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-03/Infografia.jpg",
@@ -41,8 +41,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 03 de julio",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Estrategias y adaptaciones inclusiva.",
     estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-04/Infografia.jpg",
@@ -54,8 +54,8 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 10 de julio",
-    titulo: "Capacitación pendiente de registrar",
-    tema: "Tema: pendiente de completar.",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
+    tema: "Tema: Implementación y buenas prácticas.",
     estado: "disponible",
     recursos: {
       infografia: "imagenes/capacitacion-05/infografia.jpg",
@@ -67,7 +67,7 @@ const capacitaciones = [
   },
   {
     fecha: "Viernes 17 de julio",
-    titulo: "Capacitación pendiente de registrar",
+    titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
     tema: "Tema: pendiente de completar.",
     estado: "pendiente",
     recursos: {
