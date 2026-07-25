@@ -7,8 +7,7 @@ const capacitaciones = [
     recursos: {
       flyer: "imagenes/capacitacion-01/flyer.jpg",
       infografia: "imagenes/capacitacion-01/infografia.jpg",
-      diapositivas: "https://drive.google.com/file/d/1HNFoHBVokwRZFunaKFUv506sZ39fOjX_/preview",
-      diapositivasDrive: "https://drive.google.com/file/d/1HNFoHBVokwRZFunaKFUv506sZ39fOjX_/view",
+      pdfDrive: "https://drive.google.com/file/d/1HNFoHBVokwRZFunaKFUv506sZ39fOjX_/view?usp=drive_link",
       video: "https://drive.google.com/file/d/12sRjL1kb-4y8g3Tz8fpUpemK2Uzptkuz/preview",
       videoDrive: "https://drive.google.com/file/d/12sRjL1kb-4y8g3Tz8fpUpemK2Uzptkuz/view"
     }
@@ -16,25 +15,25 @@ const capacitaciones = [
   {
     fecha: "Viernes 19 de junio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Neurociencia y factores emocionales en el aprendizaje.",
+    tema: "Tema: Neurociencia y factores emocionales en el aprendizaje",
     estado: "disponible",
     recursos: {
+      flyer: "",
       infografia: "imagenes/capacitacion-02/Infografia.jpg",
-      diapositivas: "https://drive.google.com/file/d/14ECDjqx7w25FTpz62BgIyrJoU7XtVDVS/preview",
-      diapositivasDrive: "https://drive.google.com/file/d/14ECDjqx7w25FTpz62BgIyrJoU7XtVDVS/view",
-      video: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/preview",
-      videoDrive: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/view"
+      pdfDrive: "https://drive.google.com/file/d/14ECDjqx7w25FTpz62BgIyrJoU7XtVDVS/view?usp=drive_link",
+      video: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/preview",
+      videoDrive: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/view"
     }
   },
   {
     fecha: "Viernes 26 de junio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Aprendizaje contextualizado e inclusivo.",
+    tema: "Tema: Aprendizaje contextualizado e inclusivo",
     estado: "disponible",
     recursos: {
+      flyer: "",
       infografia: "imagenes/capacitacion-03/Infografia.jpg",
-      diapositivas: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/preview",
-      diapositivasDrive: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/view",
+      pdfDrive: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/view?usp=drive_link",
       video: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZnpJbVRMRXJab3NmUXBMbWxzRnF3aHdGU2VTbFdHZTIvcHJldmlldw=="),
       videoDrive: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZnpJbVRMRXJab3NmUXBMbWxzRnF3aHdGU2VTbFdHZTIvdmlldw==")
     }
@@ -42,12 +41,12 @@ const capacitaciones = [
   {
     fecha: "Viernes 03 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Estrategias y adaptaciones inclusiva.",
+    tema: "Tema: Estrategias y adaptaciones inclusivas",
     estado: "disponible",
     recursos: {
+      flyer: "",
       infografia: "imagenes/capacitacion-04/Infografia.jpg",
-      diapositivas: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/preview",
-      diapositivasDrive: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/view",
+      pdfDrive: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/view?usp=drive_link",
       video: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdkliY2I0WGZYNmJfQW5nT1VMZzUyYlk0dGk4Q0h6V0svcHJldmlldw=="),
       videoDrive: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdkliY2I0WGZYNmJfQW5nT1VMZzUyYlk0dGk4Q0h6V0svdmlldw==")
     }
@@ -55,12 +54,12 @@ const capacitaciones = [
   {
     fecha: "Viernes 10 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Implementación y buenas prácticas.",
+    tema: "Tema: Implementación de buenas prácticas",
     estado: "disponible",
     recursos: {
-      infografia: "imagenes/capacitacion-05/infografia.jpg",
-      diapositivas: "https://drive.google.com/file/d/1N2iQBMexK3Q1y425gi_JzWNNLq4GEvaj/preview",
-      diapositivasDrive: "https://drive.google.com/file/d/1N2iQBMexK3Q1y425gi_JzWNNLq4GEvaj/view",
+      flyer: "",
+      infografia: "",
+      pdfDrive: "https://drive.google.com/file/d/1N2iQBMexK3Q1y425gi_JzWNNLq4GEvaj/view?usp=drive_link",
       video: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/preview",
       videoDrive: "https://drive.google.com/file/d/1sfatW2Ox0Ox5Ai621aHE0fSQmIpCayXd/view"
     }
@@ -68,48 +67,37 @@ const capacitaciones = [
   {
     fecha: "Viernes 17 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Fundamentos del Diseño Universal para el Aprendizaje (DUA).",
-    estado: "pendiente",
-    recursos: {
-    infografia: "imagenes/capacitacion-06/infografia.jpg"
-    }
+    tema: "Tema: Fundamentos del Diseño Universal para el Aprendizaje (DUA)",
+    estado: "disponible",
+    recursos: { flyer: "", infografia: "imagenes/capacitacion-06/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 24 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Principio I:Múltiples formas de implicaciones.",
+    tema: "Tema: Principio I: Múltiples formas de implicación",
     estado: "pendiente",
-    recursos: {
-    infografia: "imagenes/capacitacion-07/infografia.jpg",
-    }
+    recursos: { flyer: "", infografia: "imagenes/capacitacion-07/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 31 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Principio II:Múltiples formas de implicaciones.",
-    estado: "pendiente",
-    recursos: {      
-    infografia: "imagenes/capacitacion-08/infografia.jpg",
-  }
+    tema: "Tema: Principio II: Múltiples formas de representación",
+    estado: "disponible",
+    recursos: { flyer: "", infografia: "imagenes/capacitacion-08/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 07 de agosto",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Principio III:Múltiples formas de implicaciones.",
-    estado: "pendiente",
-    recursos: {
-    infografia: "imagenes/capacitacion-09/infografia.jpg",
-
-    }
+    tema: "Tema: Principio III: Múltiples formas de acción y expresión",
+    estado: "disponible",
+    recursos: { flyer: "", infografia: "imagenes/capacitacion-09/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 14 de agosto",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
-    tema: "Tema: Aplicación práctica del DUA en la planificación docente.",
-    estado: "pendiente",
-    recursos: {
-    infografia: "imagenes/capacitacion-10/infografia.jpg",
-    }
+    tema: "Tema: Aplicación práctica del DUA en la planificación docente",
+    estado: "disponible",
+    recursos: { flyer: "", infografia: "imagenes/capacitacion-10/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   }
 ];
 
@@ -130,38 +118,40 @@ function crearRecursoImagen(titulo, ruta, textoBoton, alt) {
     return crearRecursoPendiente(titulo, "Pendiente de subir", "Sin archivo");
   }
 
+  const rutaSegura = protegerHTML(ruta);
   return `
     <article class="recurso">
       <h4>${protegerHTML(titulo)}</h4>
-      <a class="vista-recurso" href="${ruta}" target="_blank" rel="noopener">
-        <img src="${ruta}" alt="${protegerHTML(alt)}" loading="lazy" decoding="async">
+      <a class="vista-recurso" href="${rutaSegura}" target="_blank" rel="noopener noreferrer">
+        <img src="${rutaSegura}" alt="${protegerHTML(alt)}" loading="lazy" decoding="async">
       </a>
-      <a class="boton-recurso" href="${ruta}" target="_blank" rel="noopener">
+      <a class="boton-recurso" href="${rutaSegura}" target="_blank" rel="noopener noreferrer">
         ${protegerHTML(textoBoton)}
       </a>
     </article>
   `;
 }
 
-function crearRecursoPDF(ruta, rutaDrive) {
-  if (!ruta) {
-    return crearRecursoPendiente("Diapositivas PDF", "Pendiente de subir", "Sin archivo");
+function crearRecursoPDF(rutaDrive) {
+  if (!rutaDrive) {
+    return crearRecursoPendiente("PDF", "Pendiente de enlazar desde Google Drive", "Sin enlace");
   }
 
-  const enlaceExterno = rutaDrive || ruta.replace("/preview", "/view");
-  const vistaSegura = protegerHTML(ruta);
+  const enlaceExterno = rutaDrive.replace(/\/preview(?:\?.*)?$/, "/view");
+  const enlaceVistaPrevia = rutaDrive.replace(/\/view(?:\?.*)?$/, "/preview");
   const enlaceSeguro = protegerHTML(enlaceExterno);
+  const vistaPreviaSegura = protegerHTML(enlaceVistaPrevia);
 
   return `
     <article class="recurso">
-      <h4>Diapositivas PDF</h4>
-      <div class="vista-recurso diapositivas-recurso marcador" data-diapositivas-src="${vistaSegura}">
-        <button class="boton-recurso boton-cargar-diapositivas" type="button" data-diapositivas-src="${vistaSegura}">
-          Ver diapositivas
+      <h4>PDF</h4>
+      <div class="vista-recurso pdf-recurso marcador" data-pdf-src="${vistaPreviaSegura}">
+        <button class="boton-recurso boton-cargar-pdf" type="button" data-pdf-src="${vistaPreviaSegura}">
+          Ver vista previa
         </button>
       </div>
-      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener">
-        Abrir diapositivas en Drive
+      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener noreferrer">
+        Abrir PDF en Drive
       </a>
     </article>
   `;
@@ -184,7 +174,7 @@ function crearRecursoVideo(video, videoDrive) {
           Ver video
         </button>
       </div>
-      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener">
+      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener noreferrer">
         Abrir video en Drive
       </a>
     </article>
@@ -201,9 +191,17 @@ function crearRecursoPendiente(titulo, mensaje, boton) {
   `;
 }
 
-function crearTarjeta(capacitacion) {
+function crearTarjeta(capacitacion, indice) {
   const recursos = capacitacion.recursos || {};
-  const mostrarFlyer = capacitacion === capacitaciones[0];
+  const modulo = indice < 5 ? "Módulo 1: Neurodiversidad" : "Módulo 2: Diseño Universal para el Aprendizaje (DUA)";
+  const cuadroFlyer = indice === 0
+    ? crearRecursoImagen(
+        "Flyer",
+        recursos.flyer,
+        "Abrir flyer",
+        `Flyer de la capacitación ${capacitacion.titulo}`
+      )
+    : "";
 
   return `
     <article class="capacitacion ${capacitacion.estado === "disponible" ? "disponible" : "pendiente"}">
@@ -211,18 +209,14 @@ function crearTarjeta(capacitacion) {
 
       <div class="tarjeta-capacitacion">
         <header class="cabecera-capacitacion">
+          <p class="seccion-etiqueta">${modulo}</p>
           <p class="fecha">${protegerHTML(capacitacion.fecha)}</p>
           <h3>${protegerHTML(capacitacion.titulo)}</h3>
           <p class="tema">${protegerHTML(capacitacion.tema)}</p>
         </header>
 
-        <div class="recursos${mostrarFlyer ? "" : " tres-recursos"}" id="materiales">
-          ${mostrarFlyer ? crearRecursoImagen(
-            "Flyer",
-            recursos.flyer,
-            "Abrir flyer",
-            `Flyer de la capacitación ${capacitacion.titulo}`
-          ) : ""}
+        <div class="recursos" id="materiales">
+          ${cuadroFlyer}
 
           ${crearRecursoImagen(
             "Infografía",
@@ -231,7 +225,7 @@ function crearTarjeta(capacitacion) {
             `Infografía de la capacitación ${capacitacion.titulo}`
           )}
 
-          ${crearRecursoPDF(recursos.diapositivas, recursos.diapositivasDrive)}
+          ${crearRecursoPDF(recursos.pdfDrive)}
 
           ${crearRecursoVideo(recursos.video, recursos.videoDrive)}
         </div>
@@ -243,25 +237,43 @@ function crearTarjeta(capacitacion) {
 function renderizarCapacitaciones(lista) {
   if (!lineaTiempo) return;
 
-  lineaTiempo.innerHTML = lista.map(crearTarjeta).join("");
+  lineaTiempo.innerHTML = lista
+    .map((capacitacion, indice) => crearTarjeta(capacitacion, indice))
+    .join("");
 
   if (mensajeSinResultados) {
     mensajeSinResultados.hidden = lista.length > 0;
   }
 }
 
-function cargarRecursoEnIframe(boton, claseContenedor, atributo, titulo) {
-  const contenedor = boton.closest(claseContenedor);
-  const recurso = boton.dataset[atributo];
+function cargarPDFDrive(boton) {
+  const contenedor = boton.closest(".pdf-recurso");
+  const pdf = boton.dataset.pdfSrc;
 
-  if (!contenedor || !recurso) return;
+  if (!contenedor || !pdf) return;
 
   contenedor.classList.remove("marcador");
   contenedor.innerHTML = `
     <iframe
-      src="${protegerHTML(recurso)}"
-      title="${protegerHTML(titulo)}"
+      src="${pdf}"
+      title="Vista previa de las diapositivas en PDF"
       loading="lazy"
+      allow="autoplay">
+    </iframe>
+  `;
+}
+
+function cargarVideoDrive(boton) {
+  const contenedor = boton.closest(".video-recurso");
+  const video = boton.dataset.videoSrc;
+
+  if (!contenedor || !video) return;
+
+  contenedor.classList.remove("marcador");
+  contenedor.innerHTML = `
+    <iframe
+      src="${video}"
+      title="Video de la capacitación"
       allow="autoplay"
       allowfullscreen>
     </iframe>
@@ -269,20 +281,15 @@ function cargarRecursoEnIframe(boton, claseContenedor, atributo, titulo) {
 }
 
 document.addEventListener("click", (evento) => {
-  const botonVideo = evento.target.closest(".boton-cargar-video");
-  if (botonVideo) {
-    cargarRecursoEnIframe(botonVideo, ".video-recurso", "videoSrc", "Video de la capacitación");
+  const botonPDF = evento.target.closest(".boton-cargar-pdf");
+  if (botonPDF) {
+    cargarPDFDrive(botonPDF);
     return;
   }
 
-  const botonDiapositivas = evento.target.closest(".boton-cargar-diapositivas");
-  if (botonDiapositivas) {
-    cargarRecursoEnIframe(
-      botonDiapositivas,
-      ".diapositivas-recurso",
-      "diapositivasSrc",
-      "Vista previa de diapositivas en PDF"
-    );
+  const botonVideo = evento.target.closest(".boton-cargar-video");
+  if (botonVideo) {
+    cargarVideoDrive(botonVideo);
   }
 });
 
