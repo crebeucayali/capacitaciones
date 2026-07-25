@@ -75,8 +75,14 @@ const capacitaciones = [
     fecha: "Viernes 24 de julio",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
     tema: "Tema: Principio I: Múltiples formas de implicación",
-    estado: "pendiente",
-    recursos: { flyer: "", infografia: "imagenes/capacitacion-07/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
+    estado: "disponible",
+    recursos: {
+      flyer: "",
+      infografia: "imagenes/capacitacion-07/infografia.jpeg",
+      pdfDrive: "",
+      video: "https://drive.google.com/file/d/1zYWgFudF8NyzF86N4Jp7V1sdlG6_6-PF/preview",
+      videoDrive: "https://drive.google.com/file/d/1zYWgFudF8NyzF86N4Jp7V1sdlG6_6-PF/view?usp=sharing"
+    }
   },
   {
     fecha: "Viernes 31 de julio",
@@ -273,12 +279,14 @@ function cargarVideoDrive(boton) {
   contenedor.innerHTML = `
     <iframe
       src="${video}"
-      title="Video de la capacitación"
-      allow="autoplay"
-      allowfullscreen>
+      title="Vista previa del video de la sesión"
+      loading="lazy"
+      allow="autoplay; fullscreen">
     </iframe>
   `;
 }
+
+renderizarCapacitaciones(capacitaciones);
 
 document.addEventListener("click", (evento) => {
   const botonPDF = evento.target.closest(".boton-cargar-pdf");
@@ -292,5 +300,3 @@ document.addEventListener("click", (evento) => {
     cargarVideoDrive(botonVideo);
   }
 });
-
-renderizarCapacitaciones(capacitaciones);
