@@ -7,7 +7,7 @@
     "tipo": "Módulo",
     "descripcion": "Repositorio institucional de jornadas, talleres y recursos formativos organizados por fecha.",
     "etiquetas": ["capacitaciones", "talleres", "docentes", "familias", "formacion"],
-    "url": "https://crebe-ucayali.github.io/capacitaciones/",
+    "url": "https://crebeucayali.github.io/capacitaciones/",
     "fechaActualizacion": "2026-07-23"
   },
   {
@@ -18,7 +18,7 @@
     "tipo": "Línea de tiempo",
     "descripcion": "Consulta las jornadas registradas en orden cronológico y revisa los recursos disponibles de cada sesión.",
     "etiquetas": ["cronograma", "fechas", "sesiones", "jornadas"],
-    "url": "https://crebe-ucayali.github.io/capacitaciones/#capacitaciones",
+    "url": "https://crebeucayali.github.io/capacitaciones/#capacitaciones",
     "fechaActualizacion": "2026-07-23"
   },
   {
@@ -29,7 +29,7 @@
     "tipo": "Colección de recursos",
     "descripcion": "Acceso a flyers, infografías, documentos PDF y videos vinculados a las jornadas de capacitación.",
     "etiquetas": ["flyer", "infografia", "pdf", "video", "materiales"],
-    "url": "https://crebe-ucayali.github.io/capacitaciones/#capacitaciones",
+    "url": "https://crebeucayali.github.io/capacitaciones/#capacitaciones",
     "fechaActualizacion": "2026-07-23"
   },
   {
@@ -40,7 +40,7 @@
     "tipo": "Contenido formativo",
     "descripcion": "Materiales y sesiones para fortalecer capacidades docentes y el acompañamiento educativo inclusivo.",
     "etiquetas": ["docentes", "acompañamiento", "pedagogico", "inclusion"],
-    "url": "https://crebe-ucayali.github.io/capacitaciones/",
+    "url": "https://crebeucayali.github.io/capacitaciones/",
     "fechaActualizacion": "2026-07-23"
   }
 ]
