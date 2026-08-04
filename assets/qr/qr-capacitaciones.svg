@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290" role="img" aria-labelledby="title desc">
   <title id="title">Código QR de Capacitaciones CREBE</title>
-  <desc id="desc">Código QR que dirige a https://crebe-ucayali.github.io/capacitaciones/</desc>
+  <desc id="desc">Código QR que dirige a https://crebeucayali.github.io/capacitaciones/</desc>
   <rect width="290" height="290" fill="#ffffff"/>
   <g transform="translate(20 20)">
     <rect width="250" height="250" rx="10" fill="#ffffff" stroke="#0b3550" stroke-width="4"/>
-    <image href="https://api.qrserver.com/v1/create-qr-code/?size=250x250&amp;data=https%3A%2F%2Fcrebe-ucayali.github.io%2Fcapacitaciones%2F" x="0" y="0" width="250" height="250" preserveAspectRatio="xMidYMid meet"/>
+    <image href="https://api.qrserver.com/v1/create-qr-code/?size=250x250&amp;data=https%3A%2F%2Fcrebeucayali.github.io%2Fcapacitaciones%2F" x="0" y="0" width="250" height="250" preserveAspectRatio="xMidYMid meet"/>
   </g>
 </svg>
