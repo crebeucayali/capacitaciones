@@ -69,7 +69,13 @@
             </header>
             <div class="recursos">
               <article class="recurso recurso-pendiente"><h4>Infografía</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin archivo</span></article>
-              <article class="recurso recurso-pendiente"><h4>PDF</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin enlace</span></article>
+              <article class="recurso">
+                <h4>Diapositivas (PPTX)</h4>
+                <div class="vista-recurso pdf-recurso marcador">
+                  <button class="boton-recurso boton-cargar-diapositivas" type="button" data-slide-src="https://drive.google.com/file/d/10sF6vF71vz1EPpJYj19o8sqaF11xAmzT/preview">Ver vista previa</button>
+                </div>
+                <a class="boton-recurso" href="https://docs.google.com/presentation/d/10sF6vF71vz1EPpJYj19o8sqaF11xAmzT/edit?usp=drivesdk&amp;ouid=111231116463930767089&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">Abrir diapositivas en Drive</a>
+              </article>
               <article class="recurso">
                 <h4>Video</h4>
                 <div class="vista-recurso video-recurso marcador" data-video-src="https://drive.google.com/file/d/1KULg2TmfWzCrgwUEF78F4F8Nl-jhxcBV/preview">
@@ -253,6 +259,21 @@
   </footer>
   <script>
     document.addEventListener("click", (evento) => {
+      const botonDiapositivas = evento.target.closest(".boton-cargar-diapositivas");
+      if (botonDiapositivas) {
+        const contenedor = botonDiapositivas.closest(".pdf-recurso");
+        const url = botonDiapositivas.dataset.slideSrc;
+        if (!contenedor || !url) return;
+        contenedor.classList.remove("marcador");
+        const iframe = document.createElement("iframe");
+        iframe.src = url;
+        iframe.title = "Vista previa de las diapositivas de la sesión";
+        iframe.loading = "lazy";
+        iframe.allow = "fullscreen";
+        iframe.allowFullscreen = true;
+        contenedor.replaceChildren(iframe);
+        return;
+      }
       const boton = evento.target.closest(".boton-cargar-video");
       if (!boton) return;
       const contenedor = boton.closest(".video-recurso");
