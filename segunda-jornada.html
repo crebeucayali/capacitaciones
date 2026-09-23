@@ -70,7 +70,13 @@
             <div class="recursos">
               <article class="recurso recurso-pendiente"><h4>Infografía</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin archivo</span></article>
               <article class="recurso recurso-pendiente"><h4>PDF</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin enlace</span></article>
-              <article class="recurso recurso-pendiente"><h4>Video</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin enlace</span></article>
+              <article class="recurso">
+                <h4>Video</h4>
+                <div class="vista-recurso video-recurso marcador" data-video-src="https://drive.google.com/file/d/1KULg2TmfWzCrgwUEF78F4F8Nl-jhxcBV/preview">
+                  <button class="boton-recurso boton-cargar-video" type="button" data-video-src="https://drive.google.com/file/d/1KULg2TmfWzCrgwUEF78F4F8Nl-jhxcBV/preview">Ver video</button>
+                </div>
+                <a class="boton-recurso" href="https://drive.google.com/file/d/1KULg2TmfWzCrgwUEF78F4F8Nl-jhxcBV/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir video en Drive</a>
+              </article>
             </div>
           </div>
         </article>
@@ -86,7 +92,13 @@
             <div class="recursos">
               <article class="recurso recurso-pendiente"><h4>Infografía</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin archivo</span></article>
               <article class="recurso recurso-pendiente"><h4>PDF</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin enlace</span></article>
-              <article class="recurso recurso-pendiente"><h4>Video</h4><div class="vista-recurso marcador">Pendiente de publicación</div><span class="boton-recurso deshabilitado">Sin enlace</span></article>
+              <article class="recurso">
+                <h4>Video</h4>
+                <div class="vista-recurso video-recurso marcador" data-video-src="https://drive.google.com/file/d/1tuxu9xgoftLQuSTNbVLLnJUl5PdFhUre/preview">
+                  <button class="boton-recurso boton-cargar-video" type="button" data-video-src="https://drive.google.com/file/d/1tuxu9xgoftLQuSTNbVLLnJUl5PdFhUre/preview">Ver video</button>
+                </div>
+                <a class="boton-recurso" href="https://drive.google.com/file/d/1tuxu9xgoftLQuSTNbVLLnJUl5PdFhUre/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Abrir video en Drive</a>
+              </article>
             </div>
           </div>
         </article>
@@ -239,6 +251,23 @@
     </div>
     <div class="footer-final"><p>© 2026 Gabriel Berrospi. Desarrollo original. Uso institucional autorizado al CREBE "Señor de los Milagros" - Ucayali.</p></div>
   </footer>
+  <script>
+    document.addEventListener("click", (evento) => {
+      const boton = evento.target.closest(".boton-cargar-video");
+      if (!boton) return;
+      const contenedor = boton.closest(".video-recurso");
+      const video = boton.dataset.videoSrc;
+      if (!contenedor || !video) return;
+      contenedor.classList.remove("marcador");
+      const iframe = document.createElement("iframe");
+      iframe.src = video;
+      iframe.title = "Vista previa del video de la sesión";
+      iframe.loading = "lazy";
+      iframe.allow = "autoplay; fullscreen";
+      iframe.allowFullscreen = true;
+      contenedor.replaceChildren(iframe);
+    });
+  </script>
   <script src="https://crebeucayali.github.io/accesos-complementarios/accesibilidad/accesibilidad.js?v=5" defer></script>
 </body>
 </html>
