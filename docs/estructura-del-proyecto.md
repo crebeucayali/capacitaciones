@@ -41,11 +41,11 @@ capacitaciones-accesibles/
 
 ## Recursos por capacitación
 
-La carpeta `imagenes/` contiene recursos visuales como flyers e infografías.
+La carpeta `imagenes/primera-jornada/capacitacion-01/` a `capacitacion-10/` conserva los recursos existentes de la primera jornada, con los nombres y extensiones originales. La carpeta `imagenes/segunda-jornada/capacitacion-01/` a `capacitacion-10/` está preparada para recibir los recursos de cada sesión de la segunda jornada. `imagenes/logo-crebe.png` permanece como imagen compartida.
 
 La carpeta `documentos/` queda reservada para diapositivas, guías o materiales descargables.
 
-Para nuevas jornadas, se recomienda mantener una organización por carpetas de capacitación.
+Cada jornada tiene su propia carpeta y cada sesión una subcarpeta. Los enlaces externos a diapositivas y videos permanecen en las páginas y scripts correspondientes.
 
 ## Videos
 

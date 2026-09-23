@@ -5,8 +5,8 @@ const capacitaciones = [
     tema: "Fundamentos de la neurodiversidad",
     estado: "disponible",
     recursos: {
-      flyer: "imagenes/capacitacion-01/flyer.jpg",
-      infografia: "imagenes/capacitacion-01/infografia.jpg",
+      flyer: "imagenes/primera-jornada/capacitacion-01/flyer.jpg",
+      infografia: "imagenes/primera-jornada/capacitacion-01/infografia.jpg",
       pdfDrive: "https://drive.google.com/file/d/1HNFoHBVokwRZFunaKFUv506sZ39fOjX_/view?usp=drive_link",
       video: "https://drive.google.com/file/d/12sRjL1kb-4y8g3Tz8fpUpemK2Uzptkuz/preview",
       videoDrive: "https://drive.google.com/file/d/12sRjL1kb-4y8g3Tz8fpUpemK2Uzptkuz/view"
@@ -19,7 +19,7 @@ const capacitaciones = [
     estado: "disponible",
     recursos: {
       flyer: "",
-      infografia: "imagenes/capacitacion-02/Infografia.jpg",
+      infografia: "imagenes/primera-jornada/capacitacion-02/Infografia.jpg",
       pdfDrive: "https://drive.google.com/file/d/14ECDjqx7w25FTpz62BgIyrJoU7XtVDVS/view?usp=drive_link",
       video: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/preview",
       videoDrive: "https://drive.google.com/file/d/1MSyDiHF1ffNNPFpiXs9diLafmHT9ms8I/view"
@@ -32,7 +32,7 @@ const capacitaciones = [
     estado: "disponible",
     recursos: {
       flyer: "",
-      infografia: "imagenes/capacitacion-03/Infografia.jpg",
+      infografia: "imagenes/primera-jornada/capacitacion-03/Infografia.jpg",
       pdfDrive: "https://drive.google.com/file/d/1ANmSOYaQrZZq1h3E2M8rSfdJ69-077Si/view?usp=drive_link",
       video: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZnpJbVRMRXJab3NmUXBMbWxzRnF3aHdGU2VTbFdHZTIvcHJldmlldw=="),
       videoDrive: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZnpJbVRMRXJab3NmUXBMbWxzRnF3aHdGU2VTbFdHZTIvdmlldw==")
@@ -45,7 +45,7 @@ const capacitaciones = [
     estado: "disponible",
     recursos: {
       flyer: "",
-      infografia: "imagenes/capacitacion-04/Infografia.jpg",
+      infografia: "imagenes/primera-jornada/capacitacion-04/Infografia.jpg",
       pdfDrive: "https://drive.google.com/file/d/1NwsWS2qGqmVcDB95OfeL0KxmRtjlj84S/view?usp=drive_link",
       video: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdkliY2I0WGZYNmJfQW5nT1VMZzUyYlk0dGk4Q0h6V0svcHJldmlldw=="),
       videoDrive: atob("aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdkliY2I0WGZYNmJfQW5nT1VMZzUyYlk0dGk4Q0h6V0svdmlldw==")
@@ -69,7 +69,7 @@ const capacitaciones = [
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
     tema: "Tema: Fundamentos del Diseño Universal para el Aprendizaje (DUA)",
     estado: "disponible",
-    recursos: { flyer: "", infografia: "imagenes/capacitacion-06/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
+    recursos: { flyer: "", infografia: "imagenes/primera-jornada/capacitacion-06/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 24 de julio",
@@ -78,7 +78,7 @@ const capacitaciones = [
     estado: "disponible",
     recursos: {
       flyer: "",
-      infografia: "imagenes/capacitacion-07/infografia.jpeg",
+      infografia: "imagenes/primera-jornada/capacitacion-07/infografia.jpeg",
       pdfDrive: "",
       video: "https://drive.google.com/file/d/1zYWgFudF8NyzF86N4Jp7V1sdlG6_6-PF/preview",
       videoDrive: "https://drive.google.com/file/d/1zYWgFudF8NyzF86N4Jp7V1sdlG6_6-PF/view?usp=sharing"
@@ -89,21 +89,21 @@ const capacitaciones = [
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
     tema: "Tema: Principio II: Múltiples formas de representación",
     estado: "disponible",
-    recursos: { flyer: "", infografia: "imagenes/capacitacion-08/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
+    recursos: { flyer: "", infografia: "imagenes/primera-jornada/capacitacion-08/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 07 de agosto",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
     tema: "Tema: Principio III: Múltiples formas de acción y expresión",
     estado: "disponible",
-    recursos: { flyer: "", infografia: "imagenes/capacitacion-09/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
+    recursos: { flyer: "", infografia: "imagenes/primera-jornada/capacitacion-09/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   },
   {
     fecha: "Viernes 14 de agosto",
     titulo: "Adaptaciones curriculares pedagógicas en la atención a la diversidad",
     tema: "Tema: Aplicación práctica del DUA en la planificación docente",
     estado: "disponible",
-    recursos: { flyer: "", infografia: "imagenes/capacitacion-10/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
+    recursos: { flyer: "", infografia: "imagenes/primera-jornada/capacitacion-10/infografia.jpeg", pdfDrive: "", video: "", videoDrive: "" }
   }
 ];
 
