@@ -696,26 +696,76 @@ footer, .pie {
 .boton-cerrado{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border:1px solid #aab6bb;border-radius:14px;background:#e5eaec;color:#566970;font-weight:850;cursor:not-allowed}
 @media(max-width:760px){.marca-institucional{align-items:flex-start}.marca-logo-superior{width:52px;height:52px;border-radius:16px}.marca-texto-superior{padding-left:12px}.marca-nombre-institucional{font-size:.94rem}.marca-detalle-institucional{font-size:.82rem}.selector-jornadas{width:min(100% - 22px,1180px);padding:38px 0 48px}.rejilla-jornadas{grid-template-columns:1fr}.tarjeta-jornada{min-height:auto;padding:25px 22px}.numero-jornada{width:56px;height:56px;font-size:1.45rem}}
 
-/* Escala tipográfica contenida para encabezados principales. */
+/* Jerarquía tipográfica CAPACITACIÓN.
+   Escala por función: portada, secciones, sesiones, recursos y materiales complementarios. */
 .presentacion h1,
 .hero h1{
   font-size:clamp(2rem,3.5vw,3rem);
   line-height:1.10;
 }
+
+/* H2 principales de contenido. Se excluyen los H2 del footer. */
 .panel-encabezado h2,
 .presentacion:not(header .presentacion) h2,
 .selector-encabezado h2{
   font-size:clamp(1.5rem,2.3vw,1.875rem);
   line-height:1.20;
 }
+
+/* H3 de tarjetas de jornada y de cada sesión. */
+.tarjeta-jornada h3{
+  font-size:clamp(1.25rem,1.8vw,1.375rem);
+  line-height:1.28;
+}
+.cabecera-capacitacion h3{
+  font-size:clamp(1.375rem,2vw,1.5rem);
+  line-height:1.22;
+  letter-spacing:-.02em;
+}
+
+/* H4 de recursos y bloques internos. */
+.recurso h4{
+  font-size:1rem;
+  line-height:1.30;
+}
+.materiales-encabezado h4{
+  font-size:1.05rem;
+  line-height:1.30;
+}
+
+/* H5 de materiales complementarios. */
+.material-complementario h5{
+  font-size:.96rem;
+  line-height:1.32;
+}
+
 @media (max-width:760px){
   .presentacion h1,
   .hero h1{
     font-size:clamp(2rem,9vw,2.25rem);
   }
+
   .panel-encabezado h2,
   .presentacion:not(header .presentacion) h2,
   .selector-encabezado h2{
     font-size:clamp(1.5rem,6vw,1.6875rem);
   }
+
+  .tarjeta-jornada h3{
+    font-size:1.25rem;
+  }
+
+  .cabecera-capacitacion h3{
+    font-size:clamp(1.25rem,5.5vw,1.375rem);
+  }
+
+  .recurso h4,
+  .materiales-encabezado h4{
+    font-size:1rem;
+  }
+
+  .material-complementario h5{
+    font-size:.95rem;
+  }
 }
+
