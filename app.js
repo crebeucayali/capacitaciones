@@ -110,13 +110,16 @@ const capacitaciones = [
 const lineaTiempo = document.getElementById("lineaTiempo");
 const mensajeSinResultados = document.getElementById("sinResultados");
 
-function protegerHTML(texto) {
-  return String(texto)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+function validarRutaLocal(valor) {
+  const texto = String(valor || "").trim();
+  if (!texto) return null;
+
+  try {
+    const url = new URL(texto, window.location.href);
+    return url.origin === window.location.origin ? url.href : null;
+  } catch (error) {
+    return null;
+  }
 }
 
 function validarUrlDrive(valor) {
@@ -141,30 +144,62 @@ function validarUrlDrive(valor) {
   }
 }
 
+function crearTituloRecurso(texto) {
+  const titulo = document.createElement("h4");
+  titulo.textContent = texto;
+  return titulo;
+}
+
+function crearEnlaceRecurso(url, texto, clase = "boton-recurso") {
+  const enlace = document.createElement("a");
+  enlace.className = clase;
+  enlace.href = url;
+  enlace.target = "_blank";
+  enlace.rel = "noopener noreferrer";
+  enlace.textContent = texto;
+  return enlace;
+}
+
 function crearRecursoImagen(titulo, ruta, textoBoton, alt) {
-  if (!ruta) {
-    return crearRecursoPendiente(titulo, "Pendiente de subir", "Sin archivo");
+  const rutaSegura = validarRutaLocal(ruta);
+
+  if (!rutaSegura) {
+    return crearRecursoPendiente(
+      titulo,
+      ruta ? "Ruta bloqueada por seguridad" : "Pendiente de subir",
+      ruta ? "Archivo no permitido" : "Sin archivo"
+    );
   }
 
-  const rutaSegura = protegerHTML(ruta);
-  return `
-    <article class="recurso">
-      <h4>${protegerHTML(titulo)}</h4>
-      <a class="vista-recurso" href="${rutaSegura}" target="_blank" rel="noopener noreferrer">
-        <img src="${rutaSegura}" alt="${protegerHTML(alt)}" loading="lazy" decoding="async">
-      </a>
-      <a class="boton-recurso" href="${rutaSegura}" target="_blank" rel="noopener noreferrer">
-        ${protegerHTML(textoBoton)}
-      </a>
-    </article>
-  `;
+  const articulo = document.createElement("article");
+  articulo.className = "recurso";
+
+  const vista = crearEnlaceRecurso(rutaSegura, "", "vista-recurso");
+  const imagen = document.createElement("img");
+  imagen.src = rutaSegura;
+  imagen.alt = alt;
+  imagen.loading = "lazy";
+  imagen.decoding = "async";
+  vista.appendChild(imagen);
+
+  articulo.append(
+    crearTituloRecurso(titulo),
+    vista,
+    crearEnlaceRecurso(rutaSegura, textoBoton)
+  );
+
+  return articulo;
 }
 
 function crearRecursoPDF(rutaDrive) {
   const urlValidada = validarUrlDrive(rutaDrive);
 
   if (!urlValidada) {
-    return crearRecursoPendiente("PDF", rutaDrive ? "Enlace bloqueado por seguridad" : "Pendiente de enlazar desde Google Drive", rutaDrive ? "Enlace no permitido" : "Sin enlace");
+    return crearRecursoPendiente(
+      "PDF",
+      rutaDrive ? "Enlace bloqueado por seguridad" : "Pendiente de enlazar desde Google Drive",
+      rutaDrive ? "Enlace no permitido" : "Sin enlace"
+    );
   }
 
   const enlaceExterno = validarUrlDrive(urlValidada.replace(/\/preview(?:\?.*)?$/, "/view"));
@@ -174,29 +209,38 @@ function crearRecursoPDF(rutaDrive) {
     return crearRecursoPendiente("PDF", "Enlace bloqueado por seguridad", "Enlace no permitido");
   }
 
-  const enlaceSeguro = protegerHTML(enlaceExterno);
-  const vistaPreviaSegura = protegerHTML(enlaceVistaPrevia);
+  const articulo = document.createElement("article");
+  articulo.className = "recurso";
 
-  return `
-    <article class="recurso">
-      <h4>PDF</h4>
-      <div class="vista-recurso pdf-recurso marcador" data-pdf-src="${vistaPreviaSegura}">
-        <button class="boton-recurso boton-cargar-pdf" type="button" data-pdf-src="${vistaPreviaSegura}">
-          Ver vista previa
-        </button>
-      </div>
-      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener noreferrer">
-        Abrir PDF en Drive
-      </a>
-    </article>
-  `;
+  const vista = document.createElement("div");
+  vista.className = "vista-recurso pdf-recurso marcador";
+  vista.dataset.pdfSrc = enlaceVistaPrevia;
+
+  const botonVista = document.createElement("button");
+  botonVista.className = "boton-recurso boton-cargar-pdf";
+  botonVista.type = "button";
+  botonVista.dataset.pdfSrc = enlaceVistaPrevia;
+  botonVista.textContent = "Ver vista previa";
+  vista.appendChild(botonVista);
+
+  articulo.append(
+    crearTituloRecurso("PDF"),
+    vista,
+    crearEnlaceRecurso(enlaceExterno, "Abrir PDF en Drive")
+  );
+
+  return articulo;
 }
 
 function crearRecursoVideo(video, videoDrive) {
   const videoValidado = validarUrlDrive(video);
 
   if (!videoValidado) {
-    return crearRecursoPendiente("Video", video ? "Enlace bloqueado por seguridad" : "Pendiente de enlace", video ? "Enlace no permitido" : "Sin enlace");
+    return crearRecursoPendiente(
+      "Video",
+      video ? "Enlace bloqueado por seguridad" : "Pendiente de enlace",
+      video ? "Enlace no permitido" : "Sin enlace"
+    );
   }
 
   const enlaceExterno = validarUrlDrive(videoDrive || videoValidado.replace("/preview", "/view"));
@@ -204,83 +248,122 @@ function crearRecursoVideo(video, videoDrive) {
     return crearRecursoPendiente("Video", "Enlace bloqueado por seguridad", "Enlace no permitido");
   }
 
-  const videoSeguro = protegerHTML(videoValidado);
-  const enlaceSeguro = protegerHTML(enlaceExterno);
+  const articulo = document.createElement("article");
+  articulo.className = "recurso";
 
-  return `
-    <article class="recurso">
-      <h4>Video</h4>
-      <div class="vista-recurso video-recurso marcador" data-video-src="${videoSeguro}">
-        <button class="boton-recurso boton-cargar-video" type="button" data-video-src="${videoSeguro}">
-          Ver video
-        </button>
-      </div>
-      <a class="boton-recurso" href="${enlaceSeguro}" target="_blank" rel="noopener noreferrer">
-        Abrir video en Drive
-      </a>
-    </article>
-  `;
+  const vista = document.createElement("div");
+  vista.className = "vista-recurso video-recurso marcador";
+  vista.dataset.videoSrc = videoValidado;
+
+  const botonVista = document.createElement("button");
+  botonVista.className = "boton-recurso boton-cargar-video";
+  botonVista.type = "button";
+  botonVista.dataset.videoSrc = videoValidado;
+  botonVista.textContent = "Ver video";
+  vista.appendChild(botonVista);
+
+  articulo.append(
+    crearTituloRecurso("Video"),
+    vista,
+    crearEnlaceRecurso(enlaceExterno, "Abrir video en Drive")
+  );
+
+  return articulo;
 }
 
 function crearRecursoPendiente(titulo, mensaje, boton) {
-  return `
-    <article class="recurso recurso-pendiente">
-      <h4>${protegerHTML(titulo)}</h4>
-      <div class="vista-recurso marcador">${protegerHTML(mensaje)}</div>
-      <span class="boton-recurso deshabilitado">${protegerHTML(boton)}</span>
-    </article>
-  `;
+  const articulo = document.createElement("article");
+  articulo.className = "recurso recurso-pendiente";
+
+  const vista = document.createElement("div");
+  vista.className = "vista-recurso marcador";
+  vista.textContent = mensaje;
+
+  const estado = document.createElement("span");
+  estado.className = "boton-recurso deshabilitado";
+  estado.textContent = boton;
+
+  articulo.append(crearTituloRecurso(titulo), vista, estado);
+  return articulo;
 }
 
 function crearTarjeta(capacitacion, indice) {
   const recursos = capacitacion.recursos || {};
-  const modulo = indice < 5 ? "Módulo 1: Neurodiversidad" : "Módulo 2: Diseño Universal para el Aprendizaje (DUA)";
-  const cuadroFlyer = indice === 0
-    ? crearRecursoImagen(
+  const modulo = indice < 5
+    ? "Módulo 1: Neurodiversidad"
+    : "Módulo 2: Diseño Universal para el Aprendizaje (DUA)";
+
+  const articulo = document.createElement("article");
+  articulo.className = `capacitacion ${capacitacion.estado === "disponible" ? "disponible" : "pendiente"}`;
+
+  const punto = document.createElement("div");
+  punto.className = "punto-linea";
+  punto.setAttribute("aria-hidden", "true");
+
+  const tarjeta = document.createElement("div");
+  tarjeta.className = "tarjeta-capacitacion";
+
+  const cabecera = document.createElement("header");
+  cabecera.className = "cabecera-capacitacion";
+
+  const etiqueta = document.createElement("p");
+  etiqueta.className = "seccion-etiqueta";
+  etiqueta.textContent = modulo;
+
+  const fecha = document.createElement("p");
+  fecha.className = "fecha";
+  fecha.textContent = capacitacion.fecha;
+
+  const titulo = document.createElement("h3");
+  titulo.textContent = capacitacion.titulo;
+
+  const tema = document.createElement("p");
+  tema.className = "tema";
+  tema.textContent = capacitacion.tema;
+
+  cabecera.append(etiqueta, fecha, titulo, tema);
+
+  const contenedorRecursos = document.createElement("div");
+  contenedorRecursos.className = "recursos";
+  contenedorRecursos.id = "materiales";
+
+  if (indice === 0) {
+    contenedorRecursos.appendChild(
+      crearRecursoImagen(
         "Flyer",
         recursos.flyer,
         "Abrir flyer",
         `Flyer de la capacitación ${capacitacion.titulo}`
       )
-    : "";
+    );
+  }
 
-  return `
-    <article class="capacitacion ${capacitacion.estado === "disponible" ? "disponible" : "pendiente"}">
-      <div class="punto-linea" aria-hidden="true"></div>
+  contenedorRecursos.append(
+    crearRecursoImagen(
+      "Infografía",
+      recursos.infografia,
+      "Abrir infografía",
+      `Infografía de la capacitación ${capacitacion.titulo}`
+    ),
+    crearRecursoPDF(recursos.pdfDrive),
+    crearRecursoVideo(recursos.video, recursos.videoDrive)
+  );
 
-      <div class="tarjeta-capacitacion">
-        <header class="cabecera-capacitacion">
-          <p class="seccion-etiqueta">${modulo}</p>
-          <p class="fecha">${protegerHTML(capacitacion.fecha)}</p>
-          <h3>${protegerHTML(capacitacion.titulo)}</h3>
-          <p class="tema">${protegerHTML(capacitacion.tema)}</p>
-        </header>
+  tarjeta.append(cabecera, contenedorRecursos);
+  articulo.append(punto, tarjeta);
 
-        <div class="recursos" id="materiales">
-          ${cuadroFlyer}
-
-          ${crearRecursoImagen(
-            "Infografía",
-            recursos.infografia,
-            "Abrir infografía",
-            `Infografía de la capacitación ${capacitacion.titulo}`
-          )}
-
-          ${crearRecursoPDF(recursos.pdfDrive)}
-
-          ${crearRecursoVideo(recursos.video, recursos.videoDrive)}
-        </div>
-      </div>
-    </article>
-  `;
+  return articulo;
 }
 
 function renderizarCapacitaciones(lista) {
   if (!lineaTiempo) return;
 
-  lineaTiempo.innerHTML = lista
-    .map((capacitacion, indice) => crearTarjeta(capacitacion, indice))
-    .join("");
+  const fragmento = document.createDocumentFragment();
+  lista.forEach((capacitacion, indice) => {
+    fragmento.appendChild(crearTarjeta(capacitacion, indice));
+  });
+
+  lineaTiempo.replaceChildren(fragmento);
 
   if (mensajeSinResultados) {
     mensajeSinResultados.hidden = lista.length > 0;
