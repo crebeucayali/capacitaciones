@@ -769,3 +769,21 @@ footer, .pie {
   }
 }
 
+/* Ajuste de compacidad vertical exclusivo para la portada principal de CAPACITACIÓN. */
+.pagina-inicio-capacitaciones .cabecera{
+  padding-bottom:88px;
+}
+
+.pagina-inicio-capacitaciones .cabecera .presentacion{
+  margin-top:48px;
+}
+
+@media (max-width:760px){
+  .pagina-inicio-capacitaciones .cabecera{
+    padding-bottom:76px;
+  }
+
+  .pagina-inicio-capacitaciones .cabecera .presentacion{
+    margin-top:38px;
+  }
+}
