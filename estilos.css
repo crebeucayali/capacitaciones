@@ -695,3 +695,27 @@ footer, .pie {
 .boton-jornada:hover,.boton-jornada:focus-visible{background:#087665;transform:translateY(-2px);box-shadow:0 10px 22px rgba(11,85,99,.22)}
 .boton-cerrado{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border:1px solid #aab6bb;border-radius:14px;background:#e5eaec;color:#566970;font-weight:850;cursor:not-allowed}
 @media(max-width:760px){.marca-institucional{align-items:flex-start}.marca-logo-superior{width:52px;height:52px;border-radius:16px}.marca-texto-superior{padding-left:12px}.marca-nombre-institucional{font-size:.94rem}.marca-detalle-institucional{font-size:.82rem}.selector-jornadas{width:min(100% - 22px,1180px);padding:38px 0 48px}.rejilla-jornadas{grid-template-columns:1fr}.tarjeta-jornada{min-height:auto;padding:25px 22px}.numero-jornada{width:56px;height:56px;font-size:1.45rem}}
+
+/* Escala tipográfica contenida para encabezados principales. */
+.presentacion h1,
+.hero h1{
+  font-size:clamp(2rem,3.5vw,3rem);
+  line-height:1.10;
+}
+.panel-encabezado h2,
+.presentacion:not(header .presentacion) h2,
+.selector-encabezado h2{
+  font-size:clamp(1.5rem,2.3vw,1.875rem);
+  line-height:1.20;
+}
+@media (max-width:760px){
+  .presentacion h1,
+  .hero h1{
+    font-size:clamp(2rem,9vw,2.25rem);
+  }
+  .panel-encabezado h2,
+  .presentacion:not(header .presentacion) h2,
+  .selector-encabezado h2{
+    font-size:clamp(1.5rem,6vw,1.6875rem);
+  }
+}
