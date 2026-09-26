@@ -615,3 +615,51 @@ footer, .pie {
   .footer-contenido { grid-template-columns: 1fr; }
   .footer-identidad, .pie-marca { flex-direction: column; }
 }
+/* Materiales complementarios de las sesiones */
+.materiales-complementarios{
+  margin:0 clamp(18px,3vw,26px) clamp(20px,3vw,28px);
+  padding:18px;
+  background:linear-gradient(135deg,rgba(232,241,245,.55),rgba(229,243,239,.55));
+  border:1px solid var(--borde);
+  border-radius:16px;
+}
+.materiales-encabezado{margin-bottom:14px}
+.materiales-encabezado h4{
+  margin:4px 0 6px;
+  color:var(--azul-900);
+  font-size:1.05rem;
+}
+.materiales-encabezado p{margin:0;color:var(--texto-suave);line-height:1.5}
+.lista-materiales-complementarios{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.material-complementario{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  padding:12px;
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:14px;
+}
+.material-numero{
+  display:grid;
+  width:38px;
+  height:38px;
+  place-items:center;
+  color:var(--azul-700);
+  background:var(--azul-100);
+  border-radius:10px;
+  font-weight:800;
+}
+.material-complementario h5{margin:0 0 3px;color:var(--azul-900);font-size:.96rem}
+.material-complementario p{margin:0;color:var(--texto-suave);font-size:.88rem}
+.material-complementario .boton-recurso{margin-top:0;white-space:nowrap}
+@media (max-width:760px){
+  .lista-materiales-complementarios{grid-template-columns:1fr}
+  .material-complementario{grid-template-columns:auto minmax(0,1fr)}
+  .material-complementario .boton-recurso{grid-column:1 / -1}
+}
