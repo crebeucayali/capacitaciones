@@ -119,6 +119,28 @@ function protegerHTML(texto) {
     .replaceAll("'", "&#039;");
 }
 
+function validarUrlDrive(valor) {
+  const texto = String(valor || "").trim();
+  if (!texto) return null;
+
+  try {
+    const url = new URL(texto);
+    const rutaValida = /^\/file\/d\/[A-Za-z0-9_-]+\/(?:view|preview)\/?$/.test(url.pathname);
+
+    if (
+      url.protocol !== "https:" ||
+      url.hostname.toLowerCase() !== "drive.google.com" ||
+      !rutaValida
+    ) {
+      return null;
+    }
+
+    return url.href;
+  } catch (error) {
+    return null;
+  }
+}
+
 function crearRecursoImagen(titulo, ruta, textoBoton, alt) {
   if (!ruta) {
     return crearRecursoPendiente(titulo, "Pendiente de subir", "Sin archivo");
@@ -139,12 +161,19 @@ function crearRecursoImagen(titulo, ruta, textoBoton, alt) {
 }
 
 function crearRecursoPDF(rutaDrive) {
-  if (!rutaDrive) {
-    return crearRecursoPendiente("PDF", "Pendiente de enlazar desde Google Drive", "Sin enlace");
+  const urlValidada = validarUrlDrive(rutaDrive);
+
+  if (!urlValidada) {
+    return crearRecursoPendiente("PDF", rutaDrive ? "Enlace bloqueado por seguridad" : "Pendiente de enlazar desde Google Drive", rutaDrive ? "Enlace no permitido" : "Sin enlace");
   }
 
-  const enlaceExterno = rutaDrive.replace(/\/preview(?:\?.*)?$/, "/view");
-  const enlaceVistaPrevia = rutaDrive.replace(/\/view(?:\?.*)?$/, "/preview");
+  const enlaceExterno = validarUrlDrive(urlValidada.replace(/\/preview(?:\?.*)?$/, "/view"));
+  const enlaceVistaPrevia = validarUrlDrive(urlValidada.replace(/\/view(?:\?.*)?$/, "/preview"));
+
+  if (!enlaceExterno || !enlaceVistaPrevia) {
+    return crearRecursoPendiente("PDF", "Enlace bloqueado por seguridad", "Enlace no permitido");
+  }
+
   const enlaceSeguro = protegerHTML(enlaceExterno);
   const vistaPreviaSegura = protegerHTML(enlaceVistaPrevia);
 
@@ -164,12 +193,18 @@ function crearRecursoPDF(rutaDrive) {
 }
 
 function crearRecursoVideo(video, videoDrive) {
-  if (!video) {
-    return crearRecursoPendiente("Video", "Pendiente de enlace", "Sin enlace");
+  const videoValidado = validarUrlDrive(video);
+
+  if (!videoValidado) {
+    return crearRecursoPendiente("Video", video ? "Enlace bloqueado por seguridad" : "Pendiente de enlace", video ? "Enlace no permitido" : "Sin enlace");
   }
 
-  const enlaceExterno = videoDrive || video.replace("/preview", "/view");
-  const videoSeguro = protegerHTML(video);
+  const enlaceExterno = validarUrlDrive(videoDrive || videoValidado.replace("/preview", "/view"));
+  if (!enlaceExterno) {
+    return crearRecursoPendiente("Video", "Enlace bloqueado por seguridad", "Enlace no permitido");
+  }
+
+  const videoSeguro = protegerHTML(videoValidado);
   const enlaceSeguro = protegerHTML(enlaceExterno);
 
   return `
@@ -254,36 +289,34 @@ function renderizarCapacitaciones(lista) {
 
 function cargarPDFDrive(boton) {
   const contenedor = boton.closest(".pdf-recurso");
-  const pdf = boton.dataset.pdfSrc;
+  const pdf = validarUrlDrive(boton.dataset.pdfSrc);
 
   if (!contenedor || !pdf) return;
 
+  const iframe = document.createElement("iframe");
+  iframe.src = pdf;
+  iframe.title = "Vista previa de las diapositivas en PDF";
+  iframe.loading = "lazy";
+  iframe.allow = "autoplay";
+
   contenedor.classList.remove("marcador");
-  contenedor.innerHTML = `
-    <iframe
-      src="${pdf}"
-      title="Vista previa de las diapositivas en PDF"
-      loading="lazy"
-      allow="autoplay">
-    </iframe>
-  `;
+  contenedor.replaceChildren(iframe);
 }
 
 function cargarVideoDrive(boton) {
   const contenedor = boton.closest(".video-recurso");
-  const video = boton.dataset.videoSrc;
+  const video = validarUrlDrive(boton.dataset.videoSrc);
 
   if (!contenedor || !video) return;
 
+  const iframe = document.createElement("iframe");
+  iframe.src = video;
+  iframe.title = "Vista previa del video de la sesión";
+  iframe.loading = "lazy";
+  iframe.allow = "autoplay; fullscreen";
+
   contenedor.classList.remove("marcador");
-  contenedor.innerHTML = `
-    <iframe
-      src="${video}"
-      title="Vista previa del video de la sesión"
-      loading="lazy"
-      allow="autoplay; fullscreen">
-    </iframe>
-  `;
+  contenedor.replaceChildren(iframe);
 }
 
 renderizarCapacitaciones(capacitaciones);
