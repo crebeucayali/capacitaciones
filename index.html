@@ -2,43 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; frame-src 'none'; form-action 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Acceso a las jornadas de capacitación del CREBE Señor de los Milagros - Ucayali.">
   <title>Jornadas de capacitación CREBE</title>
   <link rel="icon" type="image/png" href="logo-crebe.png">
-  <link rel="stylesheet" href="estilos.css?v=22">
+  <link rel="stylesheet" href="estilos.css?v=26">
   <link rel="stylesheet" href="https://crebeucayali.github.io/accesos-complementarios/accesibilidad/accesibilidad.css?v=5">
-  <style>
-    .patron-portada{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background-image:url("patron-shipibo.webp");background-repeat:repeat;background-size:cover;background-position:center;opacity:.30;filter:saturate(1.15) contrast(1.08)}
-    .cabecera .navegacion,.cabecera .portada,.cabecera .presentacion{position:relative;z-index:1}
-    .marca-institucional{align-items:center;gap:14px;max-width:min(560px,100%)}
-    .marca-logo-superior{display:block;width:58px;height:58px;object-fit:contain;flex-shrink:0;padding:4px;background:rgba(255,255,255,.96);border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.14)}
-    .marca-texto-superior{display:block;padding-left:14px;border-left:2px solid rgba(255,255,255,.35);text-shadow:0 2px 4px rgba(0,0,0,.28)}
-    .marca-modulo{display:block;margin:0 0 3px;color:#c9f7ee;font-size:.76rem;font-weight:900;line-height:1.15;letter-spacing:.16em;text-transform:uppercase}
-    .marca-nombre-institucional{display:block;color:#fff;font-size:1.02rem;font-weight:900;line-height:1.2}
-    .marca-detalle-institucional{display:block;margin-top:4px;color:rgba(255,255,255,.94);font-size:.88rem;font-weight:750;line-height:1.25}
-    .selector-jornadas{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:52px 0 64px}
-    .selector-encabezado{max-width:760px;margin:0 auto 30px;text-align:center}
-    .selector-encabezado .seccion-etiqueta{margin-bottom:8px}
-    .selector-encabezado h2{margin:0 0 12px;color:#0b3550;font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.15}
-    .selector-encabezado p{margin:0;color:#385467;font-size:1rem;line-height:1.7}
-    .rejilla-jornadas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
-    .tarjeta-jornada{position:relative;display:flex;flex-direction:column;min-height:340px;padding:30px;border:1px solid rgba(11,53,80,.15);border-radius:26px;background:#fff;box-shadow:0 18px 44px rgba(11,53,80,.12);overflow:hidden}
-    .tarjeta-jornada::before{content:"";position:absolute;inset:0 0 auto;height:8px;background:linear-gradient(90deg,#0b5563,#15937f,#e3a325)}
-    .tarjeta-jornada.cerrada{background:linear-gradient(145deg,#f4f7f8,#e9eef0);border-style:dashed;box-shadow:0 12px 30px rgba(11,53,80,.08)}
-    .tarjeta-jornada.cerrada::before{background:linear-gradient(90deg,#7b8d96,#a7b3b8)}
-    .numero-jornada{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;margin-bottom:22px;border-radius:20px;background:#0b5563;color:#fff;font-size:1.65rem;font-weight:900;box-shadow:0 10px 22px rgba(11,85,99,.22)}
-    .cerrada .numero-jornada{background:#72858e;box-shadow:none}
-    .estado-jornada{align-self:flex-start;margin:0 0 12px;padding:7px 12px;border-radius:999px;background:#dff6ee;color:#0b6958;font-size:.76rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-    .cerrada .estado-jornada{background:#dde3e6;color:#53656d}
-    .tarjeta-jornada h3{margin:0 0 12px;color:#0b3550;font-size:1.55rem;line-height:1.2}
-    .tarjeta-jornada p{margin:0 0 24px;color:#405b6a;line-height:1.65}
-    .acciones-jornada{margin-top:auto}
-    .boton-jornada{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border-radius:14px;background:#0b5563;color:#fff;text-decoration:none;font-weight:900;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
-    .boton-jornada:hover,.boton-jornada:focus-visible{background:#087665;transform:translateY(-2px);box-shadow:0 10px 22px rgba(11,85,99,.22)}
-    .boton-cerrado{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 20px;border:1px solid #aab6bb;border-radius:14px;background:#e5eaec;color:#566970;font-weight:850;cursor:not-allowed}
-    @media(max-width:760px){.marca-institucional{align-items:flex-start}.marca-logo-superior{width:52px;height:52px;border-radius:16px}.marca-texto-superior{padding-left:12px}.marca-nombre-institucional{font-size:.94rem}.marca-detalle-institucional{font-size:.82rem}.selector-jornadas{width:min(100% - 22px,1180px);padding:38px 0 48px}.rejilla-jornadas{grid-template-columns:1fr}.tarjeta-jornada{min-height:auto;padding:25px 22px}.numero-jornada{width:56px;height:56px;font-size:1.45rem}}
-  </style>
 </head>
 <body>
   <a class="salto-contenido" href="#contenido">Ir al contenido</a>
