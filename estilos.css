@@ -842,3 +842,13 @@ html.eva-alto-contraste .acciones-aviso-drive .boton-recurso{
   background:#ffff00!important;
   border-color:#ffff00!important;
 }
+
+/* Ajuste compartido de altura de la franja superior EVA */
+@media (min-width:701px){
+  .cabecera > .navegacion,
+  .cabecera .navegacion{
+    min-height:74px;
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+}
