@@ -63,6 +63,14 @@ Cuando Supabase responde correctamente, los datos remotos sustituyen o actualiza
 
 Esta etapa no utiliza Supabase Auth ni crea sesiones de usuario. La integración realiza consultas públicas de contenido. La Política de privacidad y la Política de cookies y tecnologías similares del ecosistema fueron actualizadas para reflejar esta conexión.
 
+## Control operativo
+
+La fase de control operativo añade validaciones en la base de datos para impedir sesiones disponibles sin título definitivo o sin recursos, restringe los formatos de rutas y enlaces admitidos y valida los materiales complementarios.
+
+También se incorporó la vista administrativa privada `private.capacitaciones_control_publicacion`, sin acceso para `anon` ni `authenticated`, para comprobar si una sesión está lista para publicarse.
+
+El procedimiento semanal se documenta en [procedimiento-semanal-supabase.md](procedimiento-semanal-supabase.md).
+
 ## Estado
 
-Migración inicial aplicada en septiembre de 2026.
+Migración inicial y control operativo aplicados en septiembre de 2026.
