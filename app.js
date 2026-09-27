@@ -289,9 +289,9 @@ function crearRecursoPendiente(titulo, mensaje, boton) {
 
 function crearTarjeta(capacitacion, indice) {
   const recursos = capacitacion.recursos || {};
-  const modulo = indice < 5
+  const modulo = capacitacion.modulo || (indice < 5
     ? "Módulo 1: Neurodiversidad"
-    : "Módulo 2: Diseño Universal para el Aprendizaje (DUA)";
+    : "Módulo 2: Diseño Universal para el Aprendizaje (DUA)");
 
   const articulo = document.createElement("article");
   articulo.className = `capacitacion ${capacitacion.estado === "disponible" ? "disponible" : "pendiente"}`;
@@ -441,6 +441,39 @@ function cargarVideoDrive(boton) {
 }
 
 renderizarCapacitaciones(capacitaciones);
+
+async function cargarPrimeraJornadaDesdeSupabase() {
+  if (!window.EVASupabasePublico?.consultarSesiones) return;
+
+  try {
+    const filas = await window.EVASupabasePublico.consultarSesiones(1);
+    if (!filas.length) return;
+
+    const datosRemotos = filas.map((fila) => ({
+      fecha: fila.fecha_texto,
+      titulo: fila.titulo,
+      tema: fila.tema,
+      estado: fila.estado,
+      modulo: fila.modulo,
+      recursos: {
+        flyer: fila.flyer_url || "",
+        infografia: fila.infografia_url || "",
+        pdfDrive: fila.pdf_url || "",
+        video: fila.video_preview_url || "",
+        videoDrive: fila.video_url || ""
+      }
+    }));
+
+    capacitaciones.splice(0, capacitaciones.length, ...datosRemotos);
+    renderizarCapacitaciones(capacitaciones);
+    document.documentElement.dataset.capacitacionesFuente = "supabase";
+  } catch (error) {
+    document.documentElement.dataset.capacitacionesFuente = "respaldo-local";
+    console.warn("Capacitaciones: se mantiene el respaldo local.", error);
+  }
+}
+
+cargarPrimeraJornadaDesdeSupabase();
 
 document.addEventListener("click", (evento) => {
   const botonPDF = evento.target.closest(".boton-cargar-pdf");
