@@ -525,14 +525,18 @@ footer, .pie {
 .footer-bloque h2 {
   margin: 0 0 10px;
   color: var(--blanco);
-  font-size: 1rem;
+  font-size: .9375rem;
 }
 .footer-bloque p {
   margin: 0;
   color: #dbe9ee;
+  font-size: .875rem;
   line-height: 1.65;
 }
-.footer-bloque a { color: #dbe9ee; }
+.footer-bloque a {
+  color: #dbe9ee;
+  font-size: .875rem;
+}
 .footer-identidad, .pie-marca {
   display: flex;
   gap: 16px;
@@ -563,7 +567,7 @@ footer, .pie {
 .footer-final p {
   margin: 0;
   color: #dbe9ee;
-  font-size: 0.92rem;
+  font-size: .8125rem;
 }
 
 @media (max-width: 1020px) {
@@ -851,4 +855,10 @@ html.eva-alto-contraste .acciones-aviso-drive .boton-recurso{
     padding-top:6px;
     padding-bottom:6px;
   }
+}
+
+
+/* Escala tipográfica del footer institucional */
+.footer-legal-eva a{
+  font-size:.8125rem;
 }
