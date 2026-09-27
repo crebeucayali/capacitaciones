@@ -47,7 +47,17 @@ function validarRutaLocal(valor) {
 
   try {
     const url = new URL(texto, window.location.href);
-    return url.origin === window.location.origin ? url.href : null;
+
+    if (url.origin === window.location.origin) {
+      return url.href;
+    }
+
+    const storageCapacitaciones =
+      url.protocol === "https:" &&
+      url.hostname.toLowerCase() === "dteimbhwtzghhsijeeld.supabase.co" &&
+      /^\/storage\/v1\/object\/public\/eva-publico\/capacitaciones\/[a-z0-9._/-]+\.(jpg|jpeg|png|webp)$/i.test(url.pathname);
+
+    return storageCapacitaciones ? url.href : null;
   } catch (error) {
     return null;
   }
