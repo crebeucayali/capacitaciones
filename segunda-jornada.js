@@ -22,6 +22,44 @@ function validarVistaDrive(valor) {
   }
 }
 
+function mostrarAvisoDrive(boton, tipo, continuar) {
+  const contenedor = boton.closest(".vista-recurso");
+  if (!contenedor || contenedor.querySelector(".aviso-drive-previo")) return;
+
+  const aviso = document.createElement("div");
+  aviso.className = "aviso-drive-previo";
+  aviso.setAttribute("role", "note");
+
+  const texto = document.createElement("p");
+  texto.innerHTML = `Al cargar ${tipo}, se establecerá una conexión con <strong>Google Drive</strong>, que puede procesar datos técnicos de la conexión conforme a sus propias políticas.`;
+
+  const acciones = document.createElement("div");
+  acciones.className = "acciones-aviso-drive";
+
+  const cargar = document.createElement("button");
+  cargar.type = "button";
+  cargar.className = "boton-recurso boton-confirmar-drive";
+  cargar.textContent = tipo === "el video" ? "Cargar video" : "Cargar vista previa";
+
+  const cancelar = document.createElement("button");
+  cancelar.type = "button";
+  cancelar.className = "boton-recurso boton-cancelar-drive";
+  cancelar.textContent = "Cancelar";
+
+  cargar.addEventListener("click", continuar, { once: true });
+  cancelar.addEventListener("click", () => {
+    aviso.remove();
+    boton.hidden = false;
+    boton.focus();
+  });
+
+  acciones.append(cargar, cancelar);
+  aviso.append(texto, acciones);
+  boton.hidden = true;
+  contenedor.appendChild(aviso);
+  cargar.focus();
+}
+
 function cargarVistaDrive(boton, selectorContenedor, titulo, permisos) {
   const contenedor = boton.closest(selectorContenedor);
   const url = validarVistaDrive(
@@ -45,22 +83,26 @@ function cargarVistaDrive(boton, selectorContenedor, titulo, permisos) {
 document.addEventListener("click", (evento) => {
   const botonDiapositivas = evento.target.closest(".boton-cargar-diapositivas");
   if (botonDiapositivas) {
-    cargarVistaDrive(
-      botonDiapositivas,
-      ".pdf-recurso",
-      "Vista previa de las diapositivas de la sesión",
-      "fullscreen"
-    );
+    mostrarAvisoDrive(botonDiapositivas, "la vista previa", () => {
+      cargarVistaDrive(
+        botonDiapositivas,
+        ".pdf-recurso",
+        "Vista previa de las diapositivas de la sesión",
+        "fullscreen"
+      );
+    });
     return;
   }
 
   const botonVideo = evento.target.closest(".boton-cargar-video");
   if (botonVideo) {
-    cargarVistaDrive(
-      botonVideo,
-      ".video-recurso",
-      "Vista previa del video de la sesión",
-      "autoplay; fullscreen"
-    );
+    mostrarAvisoDrive(botonVideo, "el video", () => {
+      cargarVistaDrive(
+        botonVideo,
+        ".video-recurso",
+        "Vista previa del video de la sesión",
+        "autoplay; fullscreen"
+      );
+    });
   }
 });
