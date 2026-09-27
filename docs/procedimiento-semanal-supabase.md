@@ -115,3 +115,17 @@ Los valores previstos son:
 ## Alcance de privacidad
 
 Este procedimiento administra únicamente información pública de las capacitaciones. No incorpora Supabase Auth, sesiones de usuario ni datos personales.
+
+
+## Calendario integrado
+
+Las sesiones de Capacitaciones se reutilizan automáticamente en el Calendario del EVA mediante la vista pública `public.calendario_publico`.
+
+Por esta razón:
+
+- no debe duplicarse manualmente una sesión de Capacitación en `public.calendario_actividades`;
+- un cambio de fecha, título o estado de la sesión se realiza en `public.capacitaciones_sesiones`;
+- el Calendario recibirá ese cambio desde la misma fuente;
+- si una fecha del Calendario conserva un marcador genérico `En planificación` y la actividad confirmada es una actividad institucional distinta de la sesión, debe actualizarse el marcador existente mediante el procedimiento operativo del Calendario.
+
+La coordinación completa se documenta en el repositorio de Accesos Complementarios, en `docs/procedimiento-operativo-capacitaciones-calendario.md`.
