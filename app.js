@@ -370,6 +370,44 @@ function renderizarCapacitaciones(lista) {
   }
 }
 
+function mostrarAvisoDrive(boton, tipo, continuar) {
+  const contenedor = boton.closest(".vista-recurso");
+  if (!contenedor || contenedor.querySelector(".aviso-drive-previo")) return;
+
+  const aviso = document.createElement("div");
+  aviso.className = "aviso-drive-previo";
+  aviso.setAttribute("role", "note");
+
+  const texto = document.createElement("p");
+  texto.innerHTML = `Al cargar ${tipo}, se establecerá una conexión con <strong>Google Drive</strong>, que puede procesar datos técnicos de la conexión conforme a sus propias políticas.`;
+
+  const acciones = document.createElement("div");
+  acciones.className = "acciones-aviso-drive";
+
+  const cargar = document.createElement("button");
+  cargar.type = "button";
+  cargar.className = "boton-recurso boton-confirmar-drive";
+  cargar.textContent = tipo === "el video" ? "Cargar video" : "Cargar vista previa";
+
+  const cancelar = document.createElement("button");
+  cancelar.type = "button";
+  cancelar.className = "boton-recurso boton-cancelar-drive";
+  cancelar.textContent = "Cancelar";
+
+  cargar.addEventListener("click", continuar, { once: true });
+  cancelar.addEventListener("click", () => {
+    aviso.remove();
+    boton.hidden = false;
+    boton.focus();
+  });
+
+  acciones.append(cargar, cancelar);
+  aviso.append(texto, acciones);
+  boton.hidden = true;
+  contenedor.appendChild(aviso);
+  cargar.focus();
+}
+
 function cargarPDFDrive(boton) {
   const contenedor = boton.closest(".pdf-recurso");
   const pdf = validarUrlDrive(boton.dataset.pdfSrc);
@@ -407,12 +445,12 @@ renderizarCapacitaciones(capacitaciones);
 document.addEventListener("click", (evento) => {
   const botonPDF = evento.target.closest(".boton-cargar-pdf");
   if (botonPDF) {
-    cargarPDFDrive(botonPDF);
+    mostrarAvisoDrive(botonPDF, "la vista previa", () => cargarPDFDrive(botonPDF));
     return;
   }
 
   const botonVideo = evento.target.closest(".boton-cargar-video");
   if (botonVideo) {
-    cargarVideoDrive(botonVideo);
+    mostrarAvisoDrive(botonVideo, "el video", () => cargarVideoDrive(botonVideo));
   }
 });
