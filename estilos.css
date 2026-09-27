@@ -787,3 +787,58 @@ footer, .pie {
     margin-top:28px;
 }
 }
+
+
+/* Aviso previo antes de establecer conexión con Google Drive. */
+.aviso-drive-previo{
+  width:100%;
+  max-width:360px;
+  padding:14px;
+  color:var(--tinta);
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:12px;
+  text-align:left;
+  font-weight:600;
+}
+.aviso-drive-previo p{
+  margin:0;
+  color:var(--texto-suave);
+  font-size:.86rem;
+  line-height:1.45;
+}
+.acciones-aviso-drive{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+.acciones-aviso-drive .boton-recurso{
+  min-height:38px;
+  margin-top:0;
+  cursor:pointer;
+}
+.acciones-aviso-drive .boton-cancelar-drive{
+  color:var(--azul-900);
+  background:var(--azul-100);
+  border-color:var(--borde);
+}
+.acciones-aviso-drive .boton-cancelar-drive:hover{
+  background:var(--blanco);
+}
+.video-recurso .aviso-drive-previo{
+  background:var(--blanco);
+}
+html.eva-alto-contraste .aviso-drive-previo{
+  background:#000!important;
+  border-color:#fff!important;
+}
+html.eva-alto-contraste .aviso-drive-previo p,
+html.eva-alto-contraste .aviso-drive-previo strong{
+  color:#fff!important;
+}
+html.eva-alto-contraste .acciones-aviso-drive .boton-recurso{
+  color:#000!important;
+  background:#ffff00!important;
+  border-color:#ffff00!important;
+}
