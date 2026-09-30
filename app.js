@@ -298,8 +298,9 @@ function crearRecursoPendiente(titulo, mensaje, boton) {
 }
 
 function crearTarjeta(capacitacion, indice) {
+  const numeroSesion = capacitacion.numero_sesion || indice + 1;
   const recursos = capacitacion.recursos || {};
-  const modulo = capacitacion.modulo || (indice < 5
+  const modulo = capacitacion.modulo || (numeroSesion <= 5
     ? "Módulo 1: Neurodiversidad"
     : "Módulo 2: Diseño Universal para el Aprendizaje (DUA)");
 
@@ -337,7 +338,7 @@ function crearTarjeta(capacitacion, indice) {
   contenedorRecursos.className = "recursos";
   contenedorRecursos.id = "materiales";
 
-  if (indice === 0) {
+  if (numeroSesion === 1) {
     contenedorRecursos.appendChild(
       crearRecursoImagen(
         "Flyer",
@@ -365,8 +366,10 @@ function crearTarjeta(capacitacion, indice) {
   return articulo;
 }
 
+let publicacionConfirmada = false;
 function renderizarCapacitaciones(lista) {
   if (!lineaTiempo) return;
+  if (!publicacionConfirmada) lista = [];
 
   const fragmento = document.createDocumentFragment();
   lista.forEach((capacitacion, indice) => {
@@ -450,16 +453,17 @@ function cargarVideoDrive(boton) {
   contenedor.replaceChildren(iframe);
 }
 
-renderizarCapacitaciones(capacitaciones);
+// No presenta el respaldo estático sin confirmar qué sesiones siguen publicadas.
+renderizarCapacitaciones([]);
 
 async function cargarPrimeraJornadaDesdeSupabase() {
   if (!window.EVASupabasePublico?.consultarSesiones) return;
 
   try {
     const filas = await window.EVASupabasePublico.consultarSesiones(1);
-    if (!filas.length) return;
 
     const datosRemotos = filas.map((fila) => ({
+      numero_sesion: fila.numero_sesion,
       fecha: fila.fecha_texto,
       titulo: fila.titulo,
       tema: fila.tema,
@@ -474,12 +478,14 @@ async function cargarPrimeraJornadaDesdeSupabase() {
       }
     }));
 
+    publicacionConfirmada = true;
     capacitaciones.splice(0, capacitaciones.length, ...datosRemotos);
     renderizarCapacitaciones(capacitaciones);
     document.documentElement.dataset.capacitacionesFuente = "supabase";
   } catch (error) {
-    document.documentElement.dataset.capacitacionesFuente = "respaldo-local";
-    console.warn("Capacitaciones: se mantiene el respaldo local.", error);
+    renderizarCapacitaciones([]);
+    document.documentElement.dataset.capacitacionesFuente = "no-disponible";
+    console.warn("Capacitaciones: no se pudo verificar el contenido publicado.", error);
   }
 }
 

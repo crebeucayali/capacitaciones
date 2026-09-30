@@ -358,20 +358,22 @@ function aplicarFilaSupabase(articulo, fila) {
 }
 
 async function cargarSegundaJornadaDesdeSupabase() {
+  const articulos = [...document.querySelectorAll("#lineaTiempo > article.capacitacion")];
+  articulos.forEach(articulo => { articulo.hidden = true; });
   if (!window.EVASupabasePublico?.consultarSesiones) return;
 
   try {
     const filas = await window.EVASupabasePublico.consultarSesiones(2);
-    if (!filas.length) return;
-
-    const articulos = [...document.querySelectorAll("#lineaTiempo > article.capacitacion")];
     filas.forEach((fila) => {
-      aplicarFilaSupabase(articulos[fila.numero_sesion - 1], fila);
+      const articulo = articulos[fila.numero_sesion - 1];
+      if (!articulo) return;
+      aplicarFilaSupabase(articulo, fila);
+      articulo.hidden = false;
     });
     document.documentElement.dataset.capacitacionesFuente = "supabase";
   } catch (error) {
-    document.documentElement.dataset.capacitacionesFuente = "respaldo-local";
-    console.warn("Segunda jornada: se mantiene el respaldo local.", error);
+    document.documentElement.dataset.capacitacionesFuente = "no-disponible";
+    console.warn("Segunda jornada: no se pudo verificar el contenido publicado.", error);
   }
 }
 
