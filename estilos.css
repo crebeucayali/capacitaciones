@@ -139,6 +139,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   text-decoration: none;
   background: rgba(255, 255, 255, 0.08);
 }
+.navegacion .enlace-cabecera {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
 .enlace-cabecera:hover, .enlace-cabecera.activo, .enlaces a:hover, .enlaces a:focus {
   color: var(--blanco);
   background: rgba(255, 255, 255, 0.16);
@@ -577,6 +582,9 @@ footer, .pie {
 }
 
 @media (max-width: 760px) {
+  .navegacion .enlace-cabecera {
+    font-size: 0.875rem;
+  }
   .cabecera, .encabezado { padding: 26px 18px 116px; }
   .navegacion, .barra-navegacion {
     align-items: flex-start;
