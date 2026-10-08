@@ -20,6 +20,9 @@
 }
 .compartir-facebook:hover,.compartir-facebook:focus-visible{color:#fff;background:#145dbf}
 .compartir-facebook:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+/* Fase 8 · Etapa 7: enlaces legales sobre footer oscuro. */
+.footer-legal-eva a{color:#c9f7ee}
+.footer-legal-eva a:hover,.footer-legal-eva a:focus-visible{color:#ffffff}
 body.alto-contraste .compartir-eva{color:#fff!important;background:#000!important;border-color:#fff!important}
 body.alto-contraste .compartir-eva p{color:#fff!important}
 body.alto-contraste .compartir-facebook{color:#000!important;background:#fff!important;border:1px solid #fff!important}
