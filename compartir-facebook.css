@@ -16,7 +16,7 @@
 .compartir-facebook{
   display:inline-flex;align-items:center;justify-content:center;
   min-height:44px;padding:10px 18px;border-radius:999px;
-  color:#fff;background:#1877f2;text-decoration:none;font-weight:850;
+  color:#fff;background:#1666d3;text-decoration:none;font-weight:850;
 }
 .compartir-facebook:hover,.compartir-facebook:focus-visible{color:#fff;background:#145dbf}
 .compartir-facebook:focus-visible{outline:3px solid currentColor;outline-offset:3px}
