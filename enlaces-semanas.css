@@ -1,0 +1,4 @@
+article.capacitacion[id^="semana-"] { scroll-margin-top: 24px; }
+.compartir-semana { display:inline-flex;align-items:center;justify-content:center;min-height:40px;margin-top:12px;padding:8px 14px;border:1px solid #1f6a5a;border-radius:9px;color:#1f6a5a;background:#fff;font:inherit;font-size:.92rem;font-weight:700;cursor:pointer; }
+.compartir-semana:hover { background:#e5f3ef; }
+.compartir-semana:focus-visible { outline:3px solid #efab42;outline-offset:3px; }
