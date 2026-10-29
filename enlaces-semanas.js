@@ -13,28 +13,31 @@
       const id = etiqueta(numero);
       if (articulo.id !== id) articulo.id = id;
       const cabecera = articulo.querySelector(".cabecera-capacitacion");
-      if (cabecera && !cabecera.querySelector(".compartir-semana")) {
+      const titulo = cabecera?.querySelector("h3");
+      if (titulo && !titulo.querySelector(".compartir-semana")) {
         const boton = document.createElement("button");
         boton.type = "button";
         boton.className = "compartir-semana";
-        boton.textContent = "Copiar enlace de esta semana";
+        boton.innerHTML = '<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.7-1.7"/></svg>';
+        boton.title = "Copiar enlace de esta sesión";
         boton.setAttribute("aria-label", "Copiar enlace directo a la semana " + numero);
         boton.addEventListener("click", async () => {
           const enlace = location.origin + location.pathname + "#" + id;
           try {
             await navigator.clipboard.writeText(enlace);
-            boton.textContent = "Enlace copiado";
+            boton.title = "Enlace copiado";
+            boton.setAttribute("aria-label", "Enlace copiado de la semana " + numero);
           } catch {
             const campo = document.createElement("input");
             campo.value = enlace;
             campo.readOnly = true;
             cabecera.appendChild(campo);
             campo.select();
-            boton.textContent = "Copie el enlace seleccionado";
+            boton.title = "Copie el enlace seleccionado";
             campo.addEventListener("blur", () => campo.remove(), {once:true});
           }
         });
-        cabecera.appendChild(boton);
+        titulo.appendChild(boton);
       }
     });
     if (desplazamientoPendiente) {
