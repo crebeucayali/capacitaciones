@@ -1,4 +1,5 @@
 article.capacitacion[id^="semana-"] { scroll-margin-top: 24px; }
-.compartir-semana { display:inline-flex;align-items:center;justify-content:center;min-height:40px;margin-top:12px;padding:8px 14px;border:1px solid #1f6a5a;border-radius:9px;color:#1f6a5a;background:#fff;font:inherit;font-size:.92rem;font-weight:700;cursor:pointer; }
-.compartir-semana:hover { background:#e5f3ef; }
-.compartir-semana:focus-visible { outline:3px solid #efab42;outline-offset:3px; }
+.cabecera-capacitacion h3 .compartir-semana { display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;width:36px;height:36px;margin:0 0 0 8px;padding:0;border:1px solid transparent;border-radius:9px;background:transparent;color:#1f6a5a;cursor:pointer;line-height:1; }
+.cabecera-capacitacion h3 .compartir-semana:hover { background:#e5f3ef;border-color:#bad8d0; }
+.cabecera-capacitacion h3 .compartir-semana:focus-visible { outline:3px solid #efab42;outline-offset:2px; }
+.cabecera-capacitacion h3 .compartir-semana svg { display:block;flex:none; }
