@@ -46,7 +46,7 @@
     }
   }
   const observador = new MutationObserver(() => actualizar());
-  observador.observe(linea, {childList:true,subtree:false});
+  observador.observe(linea, {childList:true,subtree:true,attributes:true,attributeFilter:["hidden"]});
   window.addEventListener("hashchange", () => {desplazamientoPendiente=location.hash; actualizar();});
   actualizar();
   window.addEventListener("load", actualizar);
