@@ -870,3 +870,52 @@ html.eva-alto-contraste .acciones-aviso-drive .boton-recurso{
 .footer-legal-eva a{
   font-size:.8125rem;
 }
+
+
+/* EVA 2.0: alto contraste de cronograma, recursos y estados CAP.
+   Mantener imagenes, PDF y reproductores sin invertir su contenido. */
+html.eva-alto-contraste .tarjeta-capacitacion,
+html.eva-alto-contraste .cabecera-capacitacion,
+html.eva-alto-contraste .recursos,
+html.eva-alto-contraste .recurso,
+html.eva-alto-contraste .materiales-complementarios,
+html.eva-alto-contraste .material-complementario,
+html.eva-alto-contraste .aviso-drive-previo,
+html.eva-alto-contraste .estado-vacio,
+html.eva-alto-contraste .sin-resultados{
+  color:#fff!important;
+  background:#000!important;
+  background-image:none!important;
+  border-color:#fff!important;
+}
+html.eva-alto-contraste .fecha,
+html.eva-alto-contraste .capacitacion.pendiente .fecha,
+html.eva-alto-contraste .material-numero,
+html.eva-alto-contraste .boton-recurso.deshabilitado{
+  background:#000!important;
+  color:#fff!important;
+  border:1px solid #fff!important;
+  opacity:1!important;
+}
+html.eva-alto-contraste .vista-recurso.marcador:not(.video-recurso):not(:has(img)):not(:has(iframe)),
+html.eva-alto-contraste .material-complementario .material-numero{
+  color:#fff!important;
+  background:#000!important;
+  background-image:none!important;
+  border-color:#fff!important;
+}
+html.eva-alto-contraste .marcador:not(:has(img)):not(:has(iframe)){
+  color:#fff!important;
+}
+html.eva-alto-contraste .recurso :is(h3,h4),
+html.eva-alto-contraste .material-complementario :is(h5,p),
+html.eva-alto-contraste .materiales-encabezado :is(h4,p){
+  color:#fff!important;
+}
+html.eva-alto-contraste .boton-recurso:not(.deshabilitado),
+html.eva-alto-contraste .boton-recurso:not(.deshabilitado):hover,
+html.eva-alto-contraste .boton-recurso:not(.deshabilitado):focus-visible{
+  color:#000!important;
+  background:#ffff00!important;
+  border-color:#ffff00!important;
+}
