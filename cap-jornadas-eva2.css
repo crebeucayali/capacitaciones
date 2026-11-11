@@ -1,0 +1,67 @@
+/* CAP EVA 2.0 — tarjetas exclusivamente en portada de jornadas.
+   Hoja independiente para impedir que estilos históricos oculten la nueva apariencia. */
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada) {
+  background:#f5f7f8 !important;
+  border-color:#d9e2e6 !important;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada)::before {
+  background:#17324d !important;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > .numero-jornada {
+  background:#17324d !important;
+  color:#fff !important;
+  box-shadow:0 10px 22px rgba(23,50,77,.18);
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > .estado-jornada {
+  background:#e8eef5 !important;
+  color:#17324d !important;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  box-sizing:border-box;
+  border:1px solid #17324d !important;
+  border-radius:2px !important;
+  background:transparent !important;
+  color:#17324d !important;
+  text-decoration:none !important;
+  transition:background-color .2s ease,color .2s ease;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada::after {
+  content:"›";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:16px;
+  height:16px;
+  flex:none;
+  border:1px solid currentColor;
+  border-radius:50%;
+  line-height:1;
+  font-size:15px;
+  font-weight:700;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada:is(:hover,:focus-visible) {
+  background:#17324d !important;
+  border-color:#17324d !important;
+  color:#fff !important;
+  transform:none;
+  box-shadow:none;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada:focus-visible {
+  outline:3px solid #d39b27;
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce) {
+  body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .boton-jornada {transition:none!important;}
+}
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada),
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas .acciones-jornada > a.boton-jornada,
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada),
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .acciones-jornada > a.boton-jornada {
+  background:#000!important;
+  border-color:#fff!important;
+  color:#fff!important;
+}
