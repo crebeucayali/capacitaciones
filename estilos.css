@@ -919,3 +919,69 @@ html.eva-alto-contraste .boton-recurso:not(.deshabilitado):focus-visible{
   background:#ffff00!important;
   border-color:#ffff00!important;
 }
+
+/* Armonización de tarjetas de jornadas CAP con EVA 2.0.
+   Alcance exclusivo: selector de jornadas en la portada; sin modificar
+   estructura, dimensiones, grid, sesiones ni materiales. */
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) {
+  background:#f5f7f8;
+  border-color:#d9e2e6;
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada)::before {
+  background:#17324d;
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .numero-jornada {
+  background:#17324d;
+  box-shadow:0 10px 22px rgba(23,50,77,.18);
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .estado-jornada {
+  background:#e8eef5;
+  color:#17324d;
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .boton-jornada {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  box-sizing:border-box;
+  border:1px solid #17324d;
+  border-radius:2px;
+  background:transparent;
+  color:#17324d;
+  text-decoration:none;
+  transition:background-color .2s ease,color .2s ease;
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .boton-jornada::after {
+  content:"›";
+  display:inline-flex;
+  width:16px;
+  height:16px;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  border:1px solid currentColor;
+  border-radius:50%;
+  font-size:15px;
+  font-weight:700;
+  line-height:1;
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .boton-jornada:is(:hover,:focus-visible) {
+  background:#17324d;
+  border-color:#17324d;
+  color:#fff;
+  transform:none;
+  box-shadow:none;
+}
+.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .boton-jornada:focus-visible {
+  outline:3px solid #d39b27;
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce) {
+  .pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada .boton-jornada {transition:none;}
+}
+/* Mantener modo alto contraste con prioridad sobre el nuevo acabado. */
+body.alto-contraste.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada),
+body.alto-contraste.pagina-inicio-capacitaciones .selector-jornadas .tarjeta-jornada:not(.cerrada) .boton-jornada {
+  background:#000!important;
+  color:#fff!important;
+  border-color:#fff!important;
+}
