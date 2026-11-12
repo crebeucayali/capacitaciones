@@ -1,67 +1,148 @@
-/* CAP EVA 2.0 — tarjetas exclusivamente en portada de jornadas.
-   Hoja independiente para impedir que estilos históricos oculten la nueva apariencia. */
+/* Portada CAP: tarjetas de jornadas armonizadas con las tarjetas de EVA.
+   Alcance limitado a la portada. No modifica sesiones, recursos ni enlaces. */
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
+}
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada) {
-  background:#f5f7f8 !important;
-  border-color:#d9e2e6 !important;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:0;
+  min-height:0;
+  padding:24px;
+  border:1px solid #cfe2dd !important;
+  border-radius:18px;
+  background:linear-gradient(145deg,#e5f3ef,#fff 70%) !important;
+  box-shadow:0 16px 40px rgba(23,50,77,.09);
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada)::before {
-  background:#17324d !important;
+  content:none !important;
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > .numero-jornada {
-  background:#17324d !important;
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  flex:none;
+  margin:0;
+  border-radius:12px;
+  background:#1f6a5a !important;
   color:#fff !important;
-  box-shadow:0 10px 22px rgba(23,50,77,.18);
+  font-size:1.3rem;
+  box-shadow:none;
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > .estado-jornada {
-  background:#e8eef5 !important;
-  color:#17324d !important;
+  align-self:flex-start;
+  margin:0;
+  padding:5px 11px;
+  border-radius:999px;
+  background:#d9ece6 !important;
+  color:#165548 !important;
+  font-size:.76rem;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > h3 {
+  margin:2px 0 0;
+  color:#17324d;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.18rem,2vw,1.45rem);
+  font-weight:600;
+  line-height:1.3;
+  overflow-wrap:anywhere;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > p:not(.estado-jornada) {
+  margin:0 0 auto;
+  color:#41545d;
+  line-height:1.6;
+}
+body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > .acciones-jornada {
+  margin-top:auto;
+  padding-top:4px;
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada {
-  display:inline-flex;
+  display:flex;
   align-items:center;
-  justify-content:center;
-  gap:9px;
-  box-sizing:border-box;
-  border:1px solid #17324d !important;
-  border-radius:2px !important;
-  background:transparent !important;
-  color:#17324d !important;
+  justify-content:space-between;
+  gap:10px;
+  width:100%;
+  min-height:48px;
+  padding:11px 14px;
+  border:1px solid #1f6a5a !important;
+  border-radius:10px !important;
+  background:#1f6a5a !important;
+  color:#fff !important;
+  font-size:.9rem;
+  font-weight:700;
+  text-align:left;
   text-decoration:none !important;
-  transition:background-color .2s ease,color .2s ease;
+  overflow-wrap:anywhere;
+  box-shadow:none;
+  transform:none;
+  transition:background-color .2s ease;
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada::after {
-  content:"›";
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:16px;
-  height:16px;
+  content:"→";
+  display:inline;
+  width:auto;
+  height:auto;
   flex:none;
-  border:1px solid currentColor;
-  border-radius:50%;
+  border:0;
+  border-radius:0;
+  font-size:1.1rem;
   line-height:1;
-  font-size:15px;
-  font-weight:700;
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada:is(:hover,:focus-visible) {
-  background:#17324d !important;
-  border-color:#17324d !important;
+  background:#164d41 !important;
+  border-color:#164d41 !important;
   color:#fff !important;
   transform:none;
   box-shadow:none;
 }
 body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada:focus-visible {
-  outline:3px solid #d39b27;
+  outline:3px solid #bd6a13;
   outline-offset:3px;
 }
-@media(prefers-reduced-motion:reduce) {
-  body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .boton-jornada {transition:none!important;}
+@media(max-width:760px) {
+  body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas {
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada) {
+    padding:20px;
+  }
 }
-body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada),
-body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas .acciones-jornada > a.boton-jornada,
-html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .rejilla-jornadas > article.tarjeta-jornada:not(.cerrada),
-html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .acciones-jornada > a.boton-jornada {
-  background:#000!important;
-  border-color:#fff!important;
-  color:#fff!important;
+@media(prefers-reduced-motion:reduce) {
+  body.pagina-inicio-capacitaciones main#contenido .selector-jornadas .boton-jornada {
+    transition:none !important;
+  }
+}
+/* Ambos mecanismos de alto contraste usados por EVA. */
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada),
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) {
+  background:#000 !important;
+  border:2px solid #fff !important;
+  box-shadow:none !important;
+}
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) :is(h3,p),
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) :is(h3,p) {
+  color:#fff !important;
+}
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > :is(.numero-jornada,.estado-jornada),
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) > :is(.numero-jornada,.estado-jornada) {
+  background:#000 !important;
+  color:#fff !important;
+  border:1px solid #fff !important;
+}
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada,
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada {
+  background:#000 !important;
+  border:2px solid #fff !important;
+  color:#fff !important;
+}
+body.alto-contraste.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada:is(:hover,:focus-visible),
+html.eva-alto-contraste body.pagina-inicio-capacitaciones main#contenido .selector-jornadas article.tarjeta-jornada:not(.cerrada) .acciones-jornada > a.boton-jornada:is(:hover,:focus-visible) {
+  background:#fff !important;
+  color:#000 !important;
 }
